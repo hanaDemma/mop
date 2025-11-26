@@ -1,0 +1,36 @@
+version: "3.0"
+
+stories:
+
+
+- story: intro path
+  steps:
+  - intent: greet_am
+  - action: utter_greet_am
+  - intent: about_us_am
+  - action: utter_about_us_am
+
+- story: intro path
+  steps:
+  - intent: vision_am
+  - action: utter_vision_am
+
+- story: intro path
+  steps:
+  - intent: mission_am
+  - action: utter_mission_am
+  
+- story: intro path
+  steps:
+  - intent: values_am
+  - action: utter_values_am
+  
+- story: intro path
+  steps:
+  - intent: foundation_am
+  - action: utter_foundation_am
+  
+- story: intro path
+  steps:
+  - intent: goodbye_am
+  - action: utter_goodbye_am

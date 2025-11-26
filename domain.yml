@@ -1,0 +1,79 @@
+version: "3.0"
+
+intents:
+  - greet_am
+  - goodbye_am
+  - about_us_am
+  - bot_challenge
+  - values_am
+  - vision_am
+  - mission_am
+  - foundation_am
+  - start
+  - inform_language
+
+entities:
+  - selected_language
+
+slots:
+  selected_language:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: selected_language
+      - type: from_text
+
+responses:
+  utter_ask_selected_language:
+  - text: "Select your language / ቋንቋ ይምረጡ / Afaan Filadhu / ቋንቋ ምረጽ"
+    buttons:
+      - title: English
+        payload: 'English'
+      - title: አማርኛ
+        payload: 'አማርኛ'
+      - title: Afaan Oromoo
+        payload: 'Afaan Oromoo'
+      - title: ትግርኛ
+        payload: 'ትግርኛ'
+  
+
+  # Messages in Amharic
+  utter_greet_am:
+    - text: "ሰላም! እንኳን ደህና መጡ! እባክዎ ምን ልርዳዎ?"
+  utter_about_us_am:
+    - text: "ስለ ሰላም ሚኒስቴር ምን ማወቅ ይፈልጋሉ?"
+      buttons:
+        - title: "Vision"
+          payload: "/vision_am"
+        - title: "Mission"
+          payload: "/mission_am"
+        - title: "Values"
+          payload: "/values_am"
+        - title: "Foundation"
+          payload: "/foundation_am"
+  utter_vision_am:
+    - text: "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
+  utter_mission_am:
+    - text: "የዜጋውን፣ የቤተሰብንና የማህበረሰብን ሰላምን..."
+  utter_values_am:
+    - text: "ሀገር-ወዳድነት፣ ሰላማዊነት፣ ህጋዊነት፣ ምክንያታዊነት፣ ዓለም-አቀፋዊነት"
+  utter_foundation_am:
+    - text: "የሰላም ሚኒስቴር በኢትዮጵያ ፌዴራላዊ..."
+  utter_goodbye_am:
+    - text: "የሰላም ሚኒስቴር ቻትቦትን በመጠቀምዎ እናመሰግናለን!"
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+forms:
+  form_get_language:
+    required_slots:
+      - selected_language
+
+actions:
+  - validate_form_get_language
+  - action_submit_language_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

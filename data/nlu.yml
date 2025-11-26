@@ -1,0 +1,57 @@
+version: "3.0"
+
+nlu:
+- intent: inform_language
+  examples: |
+    - English
+    - አማርኛ
+    - Afaan Oromoo
+    - ትግርኛ
+    - I choose English
+    - I choose አማርኛ
+    - I choose Afaan Oromoo
+    - I choose ትግርኛ
+
+- intent: start
+  examples: |
+    - start
+    - start back
+
+- intent: greet_am
+  examples: |
+    - ሀሎ
+    - ሰላም እንዴት ነህ?
+    - ሰላም እንዴት ነሽ?
+    - ሰላም
+
+- intent: goodbye_am
+  examples: |
+    - ቻው
+    - አለቀ
+    - መልካም ቀን
+
+- intent: about_us_am
+  examples: |
+    - ስለ ሰላም ሚኒስቴር ንገረኝ
+    - ስለ ሚኒስቴሩ ንገረኝ
+
+- intent: vision_am
+  examples: |
+    - የሰላም ሚኒስቴር ራዕይ ምንድን ነው?
+
+- intent: mission_am
+  examples: |
+    - የሰላም ሚኒስቴር ተልዕኮ ምንድን ነው?
+
+- intent: values_am
+  examples: |
+    - የሰላም ሚኒስቴር እሴቶች
+
+- intent: foundation_am
+  examples: |
+    - ስለሰላም ሚንስተር ምስረታ ንገረኝ
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - am I talking to a bot?
