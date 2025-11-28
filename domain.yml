@@ -1,16 +1,16 @@
 version: "3.0"
 
 intents:
+  - start
   - greet_am
   - goodbye_am
   - about_us_am
-  - bot_challenge
-  - values_am
   - vision_am
   - mission_am
+  - values_am
   - foundation_am
-  - start
   - inform_language
+  - bot_challenge
 
 entities:
   - selected_language
@@ -22,36 +22,63 @@ slots:
     mappings:
       - type: from_entity
         entity: selected_language
-      - type: from_text
-
+      # - type: from_intent
+      #   intent: inform_language
+      #   value: null
+forms:
+  form_get_language:
+    required_slots:
+      - selected_language
+      
 responses:
   utter_ask_selected_language:
-  - text: "Select your language / ቋንቋ ይምረጡ / Afaan Filadhu / ቋንቋ ምረጽ"
+  - text: "እባክዎን ቋንቋዎን ይምረጡ / Please select your language:"
     buttons:
-      - title: English
-        payload: 'English'
-      - title: አማርኛ
-        payload: 'አማርኛ'
-      - title: Afaan Oromoo
-        payload: 'Afaan Oromoo'
-      - title: ትግርኛ
-        payload: 'ትግርኛ'
-  
+      - title: "English"
+        payload: '/inform_language{{"selected_language":"English"}}'
+      - title: "አማርኛ"
+        payload: '/inform_language{{"selected_language":"Amharic"}}'
+      - title: "Afaan Oromoo"
+        payload: '/inform_language{{"selected_language":"Afaan Oromoo"}}'
+      - title: "ትግርኛ"
+        payload: '/inform_language{{"selected_language":"Tigrinya"}}'
 
-  # Messages in Amharic
+
+  utter_welcome_am:
+  - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
+    text: እንኳን ወደ ሰላም ሚኒስትር በደህና መጡ። የምናቀርባቸውን አገልግሎቶች በተመለከተ ማንኛውንም መረጃ እየፈለጉ ነው?
+
+
+  # Greeting in multiple languages
+  utter_greet_en:
+    - text: "Hello! Welcome! How can I assist you today?"
   utter_greet_am:
     - text: "ሰላም! እንኳን ደህና መጡ! እባክዎ ምን ልርዳዎ?"
+  utter_greet_om:
+    - text: "Akkam! Baga nagaan dhuftan! Maal isin gargaaruu danda'a?"
+  utter_greet_ti:
+    - text: "ሰላም! እንኳን ደህና መጡ! እባክካ ምን ከይዳለኽ?"
+
+  utter_main_menu_am:
+  - text: "ዋና ምናሌ:"
+    buttons:
+      - title: "ስለ እኛ"
+        payload: "/about_us_am"
+      - title: "ተጨማሪ መረጃ"
+        payload: "/vision_am"
+  
   utter_about_us_am:
     - text: "ስለ ሰላም ሚኒስቴር ምን ማወቅ ይፈልጋሉ?"
       buttons:
-        - title: "Vision"
+        - title: Vision
           payload: "/vision_am"
-        - title: "Mission"
+        - title: Mission
           payload: "/mission_am"
-        - title: "Values"
+        - title: Values
           payload: "/values_am"
-        - title: "Foundation"
+        - title: Foundation
           payload: "/foundation_am"
+
   utter_vision_am:
     - text: "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
   utter_mission_am:
@@ -64,16 +91,15 @@ responses:
     - text: "የሰላም ሚኒስቴር ቻትቦትን በመጠቀምዎ እናመሰግናለን!"
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
+  utter_language_confirmed:
+    - text: "You selected '{selected_language}' as your language. ✅"
 
-forms:
-  form_get_language:
-    required_slots:
-      - selected_language
+
 
 actions:
   - validate_form_get_language
   - action_submit_language_form
-
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

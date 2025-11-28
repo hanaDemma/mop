@@ -1,36 +1,36 @@
+# data/stories.yml
 version: "3.0"
 
 stories:
 
+- story: user asks about the ministry
+  steps:
+    - intent: greet_am
+    - action: utter_greet_am
+    - intent: about_us_am
+    - action: utter_about_us_am
 
-- story: intro path
+- story: user asks for vision
   steps:
-  - intent: greet_am
-  - action: utter_greet_am
-  - intent: about_us_am
-  - action: utter_about_us_am
+    - intent: vision_am
+    - action: utter_vision_am
 
-- story: intro path
+- story: user asks for mission
   steps:
-  - intent: vision_am
-  - action: utter_vision_am
+    - intent: mission_am
+    - action: utter_mission_am
 
-- story: intro path
+- story: user asks for values
   steps:
-  - intent: mission_am
-  - action: utter_mission_am
-  
-- story: intro path
+    - intent: values_am
+    - action: utter_values_am
+
+- story: user asks for foundation
   steps:
-  - intent: values_am
-  - action: utter_values_am
-  
-- story: intro path
+    - intent: foundation_am
+    - action: utter_foundation_am
+
+- story: user says goodbye
   steps:
-  - intent: foundation_am
-  - action: utter_foundation_am
-  
-- story: intro path
-  steps:
-  - intent: goodbye_am
-  - action: utter_goodbye_am
+    - intent: goodbye_am
+    - action: utter_goodbye_am
