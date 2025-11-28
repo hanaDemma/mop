@@ -1,26 +1,19 @@
 version: "3.0"
 
 rules:
-- rule: Activate language form
-  steps:
-  - intent: start
-  - action: form_get_language
-  - active_loop: form_get_language
 
-- rule: Submit language form
+# Rule 1: Start → activate form only once
+- rule: Activate language form on start
+  steps:
+    - intent: start
+    - action: form_get_language
+    - active_loop: form_get_language
+
+# Rule 2: When form completes → stop form → run submit action
+- rule: Submit language form and finish
   condition:
-  - active_loop: form_get_language
+    - active_loop: form_get_language
   steps:
-  - action: form_get_language
-  - active_loop: null
-  - action: action_submit_language_form
-
-- rule: Say goodbye
-  steps:
-  - intent: goodbye_am
-  - action: utter_goodbye_am
-
-- rule: Bot challenge
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+    - action: form_get_language     # ← REQUIRED (last execution of the form)
+    - active_loop: null             # ← tells Rasa the form is finished
+    - action: action_submit_language_form

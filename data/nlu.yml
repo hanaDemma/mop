@@ -1,6 +1,8 @@
 version: "3.0"
 
 nlu:
+
+# 1️⃣ Language selection intent
 - intent: inform_language
   examples: |
     - English
@@ -11,6 +13,10 @@ nlu:
     - I choose አማርኛ
     - I choose Afaan Oromoo
     - I choose ትግርኛ
+    - አማርኛ
+    - ዐማርኛ
+    - amharic
+
 
 - intent: start
   examples: |
@@ -19,10 +25,42 @@ nlu:
 
 - intent: greet_am
   examples: |
-    - ሀሎ
-    - ሰላም እንዴት ነህ?
-    - ሰላም እንዴት ነሽ?
+    - ሃይ
+    - ሄሎ
+    - ሄይ
+    - ሐይ
+    - ሔሎ
+    - ሔይ
+    - ኀይ
+    - ኄሎ
+    - ኄይ
+    - ሰላም አደሩ
+    - ሠላም አደሩ
+    - እንደምን አመሹ
+    - ዕንደምን አመሹ
+    - ሄይ ሰላም
+    - ሠላም
     - ሰላም
+    - ደሕና ናችሁ
+    - ሰላም ናችሁ
+    - ሰላም ነው
+    - ሠላም ናችሁ
+    - ሠላም ነው
+
+
+- intent: main_menu_am
+  examples: |
+    - ወደ ዋናው ሜኑ መልሰኝ
+    - ወደ ዋናው ምናሌ መልሰኝ
+    - ወደ ዋናው ምናሌ ውሰደኝ
+    - ወደ ዋናው ሜኑ ውሰደኝ
+    - ወደ ዋናው ምናሌ ይሂዱ
+    - ማውጫ
+    - ዋና ማውጫ
+    - ዋና ማዉጫ
+    - ማዉጫ
+    - ሜኑ
+    - መግቢያ
 
 - intent: goodbye_am
   examples: |

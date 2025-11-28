@@ -1,56 +1,44 @@
-from typing import Any, Text, Dict, List
-import re
+# actions/actions.py
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet, AllSlotsReset, Restarted
+from rasa_sdk.events import AllSlotsReset, Restarted, Form
+from rasa_sdk.forms import FormValidationAction
+from typing import Any, Text, Dict, List   # ← This line was missing!
 
-class ValidateFormGetLanguage(Action):
+
+class ValidateFormGetLanguage(FormValidationAction):
     def name(self) -> Text:
         return "validate_form_get_language"
 
-    async def run(
+    async def validate_selected_language(
         self,
+        slot_value: Any,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-        # Grab the latest text
-        language = tracker.latest_message.get("text")
-
-        supported = {"English", "አማርኛ", "Afaan Oromoo", "ትግርኛ"}
-
-        if language in supported:
-            return [SlotSet("selected_language", language)]
-        else:
-            dispatcher.utter_message(
-                text="Sorry, I didn't recognize that language. Please choose from the options below."
-            )
-            dispatcher.utter_message(response="utter_ask_selected_language")
-            return [SlotSet("selected_language", None)]
-
+    ) -> Dict[Text, Any]:
+        valid = {"English", "Amharic", "Afaan Oromoo", "ትግርኛ"}
+        return {"selected_language": slot_value if slot_value in valid else None}
 
 class ActionSubmitLanguageForm(Action):
     def name(self) -> Text:
         return "action_submit_language_form"
 
-    async def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-        lang = tracker.get_slot("selected_language")
-        if not lang:
-            dispatcher.utter_message(text="Language selection failed.")
-            return []
+    async def run(self, dispatcher, tracker, domain):
+        lang = tracker.get_slot("selected_language") or "English"
 
-        if lang == "English":
-            dispatcher.utter_message(response="utter_greet_am")  # Replace with English utterances if needed
-        elif lang == "አማርኛ":
-            dispatcher.utter_message(response="utter_greet_am")
-        elif lang == "Afaan Oromoo":
-            dispatcher.utter_message(text="Afaan Oromoo greeting here")
-        elif lang == "ትግርኛ":
-            dispatcher.utter_message(text="Tigrinya greeting here")
+        greet_map = {
+            "English": "utter_greet_en",
+            "Amharic": "utter_greet_am",
+            "Afaan Oromoo": "utter_greet_om",
+            "ትግርኛ": "utter_greet_ti"
+        }
 
-        return [AllSlotsReset(), Restarted()]
+        dispatcher.utter_message(response=greet_map.get(lang))
+
+        # For Amharic, send welcome + main menu
+        if lang == "Amharic":
+            dispatcher.utter_message(response="utter_welcome_am")
+            dispatcher.utter_message(response="utter_main_menu_am")
+
+        return [AllSlotsReset()]
