@@ -33,6 +33,7 @@ forms:
 responses:
   utter_ask_selected_language:
   - text: "እባክዎን ቋንቋዎን ይምረጡ / Please select your language:"
+    button_type: vertical
     buttons:
       - title: "English"
         payload: '/inform_language{{"selected_language":"English"}}'
@@ -53,7 +54,7 @@ responses:
   utter_greet_en:
     - text: "Hello! Welcome! How can I assist you today?"
   utter_greet_am:
-    - text: "ሰላም! እንኳን ደህና መጡ! እባክዎ ምን ልርዳዎ?"
+    - text: "👋 ሰላም! እንኳን ደህና መጡ! እባክዎ ምን ልርዳዎ?"
   utter_greet_om:
     - text: "Akkam! Baga nagaan dhuftan! Maal isin gargaaruu danda'a?"
   utter_greet_ti:
@@ -61,23 +62,31 @@ responses:
 
   utter_main_menu_am:
   - text: "ዋና ምናሌ:"
+    button_type: vertical
     buttons:
-      - title: "ስለ እኛ"
+      - title: "🌍 ስለ እኛ"
         payload: "/about_us_am"
-      - title: "ተጨማሪ መረጃ"
-        payload: "/vision_am"
+      - title: "📝 ግጭት ሪፖርት መስጫ"
+        payload: "/conflict_report_am"
+      - title: "📊 የአደጋ ደረጃዎች"
+        payload: "/Risk_Scores_am"
+      - title: "❓ የተደጋጋሚ ጥያቄዎች አስተዳደር (FAQ)"
+        payload: "/FAQ_am"
+      - title: "🆘 እርዳታ"
+        payload: "/help_am"
   
   utter_about_us_am:
     - text: "ስለ ሰላም ሚኒስቴር ምን ማወቅ ይፈልጋሉ?"
+      button_type: vertical
       buttons:
-        - title: Vision
-          payload: "/vision_am"
-        - title: Mission
-          payload: "/mission_am"
-        - title: Values
-          payload: "/values_am"
-        - title: Foundation
-          payload: "/foundation_am"
+        - title: "🔭 Vision"
+          payload: "vision_am"
+        - title: "🎯 Mission"
+          payload: "mission_am"
+        - title: "💎 Values"
+          payload: "values_am"
+        - title: "🏛️ Foundation"
+          payload: "foundation_am"
 
   utter_vision_am:
     - text: "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
