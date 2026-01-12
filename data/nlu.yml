@@ -167,6 +167,63 @@ nlu:
    - የሰላም ሚኒስቴር እንዴት ተጀመረ?
 
 
+- intent: conflict_report_am
+  examples: |
+    - ግጭት ሪፖርት ማድረግ እፈልጋለሁ
+    - ግጭት ሪፖርት
+    - ተቃውሞ አለ
+    - አዲስ አበባ ላይ ረብሻ ተነስቷል
+    - የፀጥታ ችግር አጋጥሟል
+    - ስለ ግጭት መረጃ ለመስጠት
+    - ሁከት ተፈጥሯል
+    - አደጋ አለ
+    - በቦሌ አካባቢ ተቃውሞ እያየሁ ነው
+    - መረጃ መስጠት እፈልጋለሁ
+    - ሪፖርት ማድረግ
+    - ግጭት
+    - incident report
+    - report conflict
+
+- intent: new_conflict_report
+  examples: |
+    - አዲስ የሚቀርብ
+    - አዲስ ሪፖርት
+    - አዲስ ሪፖርት ማድረግ እፈልጋለሁ
+    - አዲስ ግጭት ሪፖርት
+    - ሪፖርት መጀመር
+    - አዲስ
+
+- intent: conflict_status
+  examples: |
+    - ግጭት ሪፖርት ሁኔታ
+    - የሪፖርት ሁኔታ
+    - ሁኔታውን ለማየት
+    - የሪፖርቴን ውጤት ማወቅ እፈልጋለሁ
+    - የቅሬታ ሁኔታ
+    - ያለፈውን ሪፖርት ሁኔታ አሳየኝ
+    - የሪፖርት ደረጃ
+
+- intent: affirm
+  examples: |
+    - yes
+    - yup
+    - sure
+    - ok
+    - true
+    - አዎ
+    - ትክክል
+    - እሺ
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - false
+    - never
+    - አይ
+    - አይደለም
+    - አልፈልግም
+
 - intent: bot_challenge
   examples: |
     - are you a bot?

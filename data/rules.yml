@@ -17,3 +17,33 @@ rules:
     - action: form_get_language     # ← REQUIRED (last execution of the form)
     - active_loop: null             # ← tells Rasa the form is finished
     - action: action_submit_language_form
+
+  # Rule 1: When user clicks "Conflict Report" on Main Menu -> Show Sub-menu
+- rule: Show conflict report sub-menu
+  steps:
+    - intent: conflict_report_am
+    - action: utter_conflict_report_am
+
+  # Rule 2: When user clicks "New Report" -> Start the Form
+- rule: Activate incident form (New)
+  steps:
+    - intent: new_conflict_report
+    - action: incident_form
+    - active_loop: incident_form
+
+  # Rule 3: Submit the form (Same as before)
+- rule: Submit incident form
+  condition:
+    - active_loop: incident_form
+  steps:
+    - action: incident_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_submit_incident_form
+
+  # Rule 4: Status Check (Optional)
+- rule: Check conflict status
+  steps:
+    - intent: conflict_status
+    - action: utter_conflict_status_check

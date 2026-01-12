@@ -11,6 +11,15 @@ intents:
   - foundation_am
   - inform_language
   - bot_challenge
+  # New intent for the menu button
+  - conflict_report_am
+  - stop
+  - affirm
+  - deny
+  - new_conflict_report
+  - conflict_status
+
+
 
 entities:
   - selected_language
@@ -22,35 +31,166 @@ slots:
     mappings:
       - type: from_entity
         entity: selected_language
-      # - type: from_intent
-      #   intent: inform_language
-      #   value: null
+
+  attachmentKeys:
+    type: text  # We store the input (text or link) here
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: attachmentKeys
+      - type: from_text 
+        intent: nlu_fallback 
+        conditions:
+         - active_loop: incident_form
+           requested_slot: attachmentKeys
+  title:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: title  # <--- THIS IS MISSING IN YOUR CODE
+
+  description:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: description
+
+  severity:
+    type: categorical
+    values:
+      - Low
+      - Medium
+      - High
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: severity
+
+  region:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: region
+
+  zone:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: zone
+
+  woreda:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: woreda
+
+  kebele:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: kebele
+
+  specificArea:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: specificArea
+
+  contactPhone:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: contactPhone
+
+  occurredAt:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: occurredAt
+
+  anonymity:
+    type: bool
+    mappings:
+      - type: from_intent
+        value: true
+        intent: affirm
+        conditions:
+         - active_loop: incident_form
+           requested_slot: anonymity
+      - type: from_intent
+        value: false
+        intent: deny
+        conditions:
+         - active_loop: incident_form
+           requested_slot: anonymity
+      - type: from_text
+        conditions:
+         - active_loop: incident_form
+           requested_slot: anonymity
+
 forms:
   form_get_language:
     required_slots:
       - selected_language
-      
+  
+  # New Incident Form
+  incident_form:
+    required_slots:
+      - title
+      - description
+      - severity
+      - region
+      - zone
+      - woreda
+      - kebele
+      - specificArea
+      - occurredAt
+      - contactPhone
+      - anonymity
+      - attachmentKeys
+
 responses:
   utter_ask_selected_language:
   - text: "እባክዎን ቋንቋዎን ይምረጡ / Please select your language:"
     button_type: vertical
     buttons:
-      - title: "English"
-        payload: '/inform_language{{"selected_language":"English"}}'
       - title: "አማርኛ"
         payload: '/inform_language{{"selected_language":"Amharic"}}'
       - title: "Afaan Oromoo"
         payload: '/inform_language{{"selected_language":"Afaan Oromoo"}}'
       - title: "ትግርኛ"
         payload: '/inform_language{{"selected_language":"Tigrinya"}}'
-
-
+      - title: "Qafaraf"
+        payload: '/inform_language{{"selected_language":"Afar"}}'
+      - title: "Soomaaliga"
+        payload: '/inform_language{{"selected_language":"Somali"}}'
+  
   utter_welcome_am:
   - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
     text: እንኳን ወደ ሰላም ሚኒስትር በደህና መጡ። የምናቀርባቸውን አገልግሎቶች በተመለከተ ማንኛውንም መረጃ እየፈለጉ ነው?
 
 
-  # Greeting in multiple languages
+
   utter_greet_en:
     - text: "Hello! Welcome! How can I assist you today?"
   utter_greet_am:
@@ -67,11 +207,7 @@ responses:
       - title: "🌍 ስለ እኛ"
         payload: "/about_us_am"
       - title: "📝 ግጭት ሪፖርት መስጫ"
-        payload: "/conflict_report_am"
-      - title: "📊 የአደጋ ደረጃዎች"
-        payload: "/Risk_Scores_am"
-      - title: "❓ የተደጋጋሚ ጥያቄዎች አስተዳደር (FAQ)"
-        payload: "/FAQ_am"
+        payload: "/conflict_report_am" 
       - title: "🆘 እርዳታ"
         payload: "/help_am"
   
@@ -80,13 +216,23 @@ responses:
       button_type: vertical
       buttons:
         - title: "🔭 Vision"
-          payload: "vision_am"
+          payload: "/vision_am"
         - title: "🎯 Mission"
-          payload: "mission_am"
+          payload: "/mission_am"
         - title: "💎 Values"
-          payload: "values_am"
+          payload: "/values_am"
         - title: "🏛️ Foundation"
-          payload: "foundation_am"
+          payload: "/foundation_am"
+
+
+  utter_conflict_report_am:
+    - text: "ግጭት ሪፖርት"
+      button_type: vertical
+      buttons:
+        - title: "➕አዲስ የሚቀርብ"
+          payload: "/new_conflict_report"
+        - title: "📊 ግጭት ሪፖርት ሁኔታ"
+          payload: "/ conflict_status"
 
   utter_vision_am:
     - text: "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
@@ -103,12 +249,64 @@ responses:
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
 
+  # --- Responses for Incident Form (Amharic) ---
+  utter_ask_title:
+    - text: "እባክዎ የክስተቱን ርዕስ ያስገቡ። (ምሳሌ፡ በቦሌ አካባቢ የተነሳ ተቃውሞ)"
 
+  utter_ask_description:
+    - text: "ምን እንደተፈጠረ በዝርዝር ይግለጹ።"
+
+  utter_ask_severity:
+    - text: "የጉዳቱ ደረጃ ምን ያህል ነው?"
+      button_type: vertical
+      buttons:
+        - title: "Low (ዝቅተኛ)"
+          payload: "Low"
+        - title: "Medium (መካከለኛ)"
+          payload: "Medium"
+        - title: "High (ከፍተኛ)"
+          payload: "High"
+
+  utter_ask_region:
+    - text: "እባኮን ክስተቱ የተፈጠረበትን ክልል/ከተማ ያስገቡ? (ምሳሌ፡ አዲስ አበባ)"
+
+  utter_ask_zone:
+    - text: "እባኮን ክስተቱ የተፈጠረበትን ዞን/ክ/ከተማ ያስገቡ?"
+
+  utter_ask_woreda:
+    - text: "እባኮን ክስተቱ የተፈጠረበትን ወረዳ ያስገቡ?"
+
+  utter_ask_kebele:
+    - text: "እባኮን ክስተቱ የተፈጠረበትን ቀበሌ ያስገቡ?"
+
+
+  utter_ask_specificArea:
+    - text: "እባኮን ልዩ ቦታ ወይም ምልክት ያስገቡ? (ምሳሌ፡ ገበያ መግቢያ)"
+
+  utter_ask_occurredAt:
+    - text: "እባኮን ክስተቱ የተፈጠረበትን ቀን እና ሰዓት ያስገቡ? (ቀን/ ወር/ ዓ/ም)"
+
+  utter_ask_contactPhone:
+    - text: "እባኮን ስልክ ቁጥርዎን ያስገቡ?"
+
+  utter_ask_anonymity:
+    - text: "እባኮን ስምዎ እና ማንነትዎ በሚስጥር እንዲያዝ ይፈልጋሉ?"
+      button_type: vertical
+      buttons:
+        - title: "አዎ (Yes)"
+          payload: "true"
+        - title: "አይ (No)"
+          payload: "false"
+  utter_ask_attachmentKeys:
+    - text: "እባኮን የድጋፍ መረጃ ወይም ፎቶ ካለዎት ይላኩ? (ካልፈለጉ 'ለማለፍ' ወይም 'Skip' ብለው ይፃፉ)"
+  utter_conflict_status_check:
+    - text: "ይህ አገልግሎት በቅርቡ ይጀምራል። (This service is coming soon)"
 
 actions:
   - validate_form_get_language
   - action_submit_language_form
-  
+  - action_submit_incident_form # You need to create this python action
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
