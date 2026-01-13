@@ -3,21 +3,67 @@ version: "3.0"
 intents:
   - start
   - greet_am
+  - greet_oro
+  - greet_som
+  - greet_tgr
+  - main_menu_am
+  - main_menu_oro
+  - main_menu_som
+  - main_menu_tgr
   - goodbye_am
+  - goodbye_oro
+  - goodbye_som
+  - goodbye_tgr
   - about_us_am
+  - about_us_oro
+  - about_us_som
+  - about_us_tgr
   - vision_am
+  - vision_oro
+  - vision_som
+  - vision_tgr
   - mission_am
+  - mission_oro
+  - mission_som
+  - mission_tgr
   - values_am
+  - values_oro
+  - values_som
+  - values_tgr
   - foundation_am
+  - foundation_oro
+  - foundation_som
+  - foundation_tgr
+  - conflict_report_am
+  - conflict_report_oro
+  - conflict_report_som
+  - conflict_report_tgr
+  - new_conflict_report_am
+  - new_conflict_report_oro
+  - new_conflict_report_som
+  - new_conflict_report_tgr
+  - conflict_status_am
+  - conflict_status_oro
+  - conflict_status_som
+  - conflict_status_tgr
+  - risk_scores_am
+  - risk_scores_oro
+  - risk_scores_som
+  - risk_scores_tgr
+  - FAQ_am
+  - FAQ_oro
+  - FAQ_som
+  - FAQ_tgr
+  - help_am
+  - help_oro
+  - help_som
+  - help_tgr
   - inform_language
   - bot_challenge
   # New intent for the menu button
-  - conflict_report_am
   - stop
   - affirm
   - deny
-  - new_conflict_report
-  - conflict_status
 
 
 
@@ -189,16 +235,29 @@ responses:
   - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
     text: እንኳን ወደ ሰላም ሚኒስትር በደህና መጡ። የምናቀርባቸውን አገልግሎቶች በተመለከተ ማንኛውንም መረጃ እየፈለጉ ነው?
 
+  utter_welcome_oro:
+  - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
+    text: Baga gara Ministeera Nageenyaa dhuftan. Waa'ee tajaajila nuti kenninu odeeffannoo barbaadduu?
+  
+  utter_welcome_som:
+  - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
+    text: Ku Soo Dhawoow Wasaaradda Nabadda. Ma waxaad raadinaysaa wax macluumaad ah oo ku saabsan adeegyada aanu bixino?
 
+  utter_welcome_tgr: 
+  - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
+    text: እንቋዕ ናብ ሚኒስትሪ ሰላም ብደሓን መጻእኩም። ብዛዕባ እቲ እንህቦ ኣገልግሎት ዝኾነ ሓበሬታ ትደልዩ ዶ?
 
   utter_greet_en:
     - text: "Hello! Welcome! How can I assist you today?"
   utter_greet_am:
     - text: "👋 ሰላም! እንኳን ደህና መጡ! እባክዎ ምን ልርዳዎ?"
-  utter_greet_om:
+  utter_greet_oro:
     - text: "Akkam! Baga nagaan dhuftan! Maal isin gargaaruu danda'a?"
-  utter_greet_ti:
+  utter_greet_som:
+    - text: "Salaan! Ku Soo Dhawoow! Sideen ku caawin karaa?"
+  utter_greet_tgr:
     - text: "ሰላም! እንኳን ደህና መጡ! እባክካ ምን ከይዳለኽ?"
+
 
   utter_main_menu_am:
   - text: "ዋና ምናሌ:"
@@ -211,41 +270,189 @@ responses:
       - title: "🆘 እርዳታ"
         payload: "/help_am"
   
-  utter_about_us_am:
-    - text: "ስለ ሰላም ሚኒስቴር ምን ማወቅ ይፈልጋሉ?"
+  utter_main_menu_oro:
+  - text: "Bahiinsa guddicha:"
+    button_type: vertical
+    buttons:
+      - title: "🌍 Waa'ee Keenyaa"
+        payload: "/about_us_oro"
+      - title: "📝 keenniinsa gabaasa walitti bu'iinsaa"
+        payload: "/conflict_report_oro" 
+      - title: "🆘 Gargaarsa"
+        payload: "/help_oro"
+
+  utter_main_menu_som:
+    - text: "Menuuga:"
       button_type: vertical
       buttons:
-        - title: "🔭 Vision"
-          payload: "/vision_am"
-        - title: "🎯 Mission"
-          payload: "/mission_am"
-        - title: "💎 Values"
-          payload: "/values_am"
-        - title: "🏛️ Foundation"
-          payload: "/foundation_am"
+        - title: "🌍 Inaga"
+          payload: "/about_us_som"
+        - title: "📝 Warbixin colaadeed "
+          payload: "/conflict_report_som" 
+        - title: "🆘 ii caawi"
+          payload: "/help_som"
+        
+  utter_main_menu_tgr: 
+    - text: "ዋና ማውጫ: "
+      button_type: vertical
+      buttons:
+        - title: "🌍 Inaga"
+          payload: "/about_us_tgr"
+        - title: "📝 Warbixin colaadeed "
+          payload: "/conflict_report_tgr" 
+        - title: "🆘 ii caawi"
+          payload: "/help_tgr"
 
+  utter_about_us_am:
+      - text: "ስለ ሰላም ሚኒስቴር ምን ማወቅ ይፈልጋሉ?"
+        button_type: vertical
+        buttons:
+          - title: "🔭 Vision"
+            payload: "/vision_am"
+          - title: "🎯 Mission"
+            payload: "/mission_am"
+          - title: "💎 Values"
+            payload: "/values_am"
+          - title: "🏛️ Foundation"
+            payload: "/foundation_am"
+
+  utter_about_us_oro:
+    - text: "Waa'ee Ministeera Nageenyaa maal beekuu barbaaddu?"
+      button_type: vertical
+      buttons:
+        - title: "🔭 Mul'ata"
+          payload: "/vision_oro"
+        - title: "🎯 Ergama"
+          payload: "/mission_oro"
+        - title: "💎 Duudhaalee"
+          payload: "/values_oro"
+        - title: "🏛️ Seenaa"
+          payload: "/foundation_oro"
+
+  
+
+  utter_about_us_som:
+    - text: "Maxaad doonaysaa inaad ka ogaato Wasaaradda Nabadda?"
+      button_type: vertical
+      buttons:
+        - title: "🔭 yool"
+          payload: "/vision_som"
+        - title: "🎯 hawlgalka"
+          payload: "/mission_som"
+        - title: "💎 qiimaha"
+          payload: "/values_som"
+        - title: "🏛️ tariikh"
+          payload: "/foundation_som"
+
+  utter_about_us_tgr:
+    - text: "ብዛዕባ ሚኒስትሪ ሰላም እንታይ ክትፈልጡ ትደልዩ?"
+      button_type: vertical
+      buttons:
+        - title: "🔭 ራእይ"
+          payload: "/vision_tgr"
+        - title: "🎯 ተልእኾ"
+          payload: "/mission_tgr"
+        - title: "💎 እሴታት"
+          payload: "/values_tgr"
+        - title: "🏛️ ታሪኽ"
+          payload: "/foundation_tgr"
 
   utter_conflict_report_am:
     - text: "ግጭት ሪፖርት"
       button_type: vertical
       buttons:
         - title: "➕አዲስ የሚቀርብ"
-          payload: "/new_conflict_report"
+          payload: "/new_conflict_report_am"
         - title: "📊 ግጭት ሪፖርት ሁኔታ"
-          payload: "/ conflict_status"
+          payload: "/ conflict_status_am"
+
+  utter_conflict_report_oro:
+    - text: "Gabaasa waldhabdee"
+      button_type: vertical
+      buttons:
+        - title: "➕ Waldhibdee haaraa"
+          payload: "/new_conflict_report_oro"
+        - title: "📊 Haala gabaasa waldhibdee"
+          payload: "/ conflict_status_oro"
+
+  utter_conflict_report_som:
+    - text: "Warbixinta khilaafka"
+      button_type: vertical
+      buttons:
+        - title: "➕ xolaad cusub "
+          payload: "/new_conflict_report_som"
+        - title: "📊 colaada xaladeeda warbixin"
+          payload: "/ conflict_status_som"
+
+  utter_conflict_report_tgr:
+    - text: "ጸብጻብ ግርጭት።"
+      button_type: vertical
+      buttons:
+        - title: "➕ ሓዱሽ ግርጭት"
+          payload: "/new_conflict_report_tgr"
+        - title: "📊 ኩነታት ፀብፃብ ግርጭት"
+          payload: "/ conflict_status_tgr"
 
   utter_vision_am:
     - text: "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
+  utter_vision_oro:
+    - text: "Nageenya,Kabaja lammumaa fi tokkummaan sabdaneessummaa guddatee arguu"
+  utter_vision_som:
+    - text: "Nabada. Sharafta .iyo midnimada .qaranka iin la tuuso la arko"\
+  utter_vision_tgr:
+    - text: "ሰላም ናይ ዜግነት ክብሪ እና ሕብረ ብሄራውነት ሓድነት ዓብዩ ምርኣይ"
+
+    
   utter_mission_am:
     - text: "የዜጋውን፣ የቤተሰብንና የማህበረሰብን ሰላምን በማስጠበቅና በማስከበር፣ ብሔራዊ መግባባትንና አገራዊ አንድነትን በማሳደግ፣ 
              የፌዴራል ስርዓቱን በማጠናከር፣ በቀድሞ ተገኝነት ግጭትን በማስተዳደር፣ ቀጣናዊና አህጉራዊ ትብብርና ትስስርን በማጎልበት እንዲሁም ተቋማዊነትን በማሳደግ ሁለንተናዊና ዘላቂ ሰላም መገንባት ነው፡፡"
+  utter_mission_oro:
+    - text: "Nageenya lammii,maatii fi hawaasaa eegsisuu fi kabachiisuudhaan,waliigaltee fi tokkummaa biyyoolessaa guddisuu
+              Sirna federaalaa jabeessuudhaan, dursanii argamuudhaan waldhibdee bulchuudhaan,waldeeggarsaa fi walitti hidhamiinsa qaxanaa fi akka ardiitti guddisuudhaan akkasumas dhaabbileewwan guddisuudhaan nageenya hunda galeessa itti fufaa ta'e ijaaruudha."
+  utter_mission_som:  
+    - text: "muwadinka, qoyska, bulshada nabada iin lasugo la ilaaliyo falaqeenta qaran midnimada wadaniyed iin la kordhiyo፣
+             Nidaamka federaalka oo la adkeeyo,isku dhacyada jira mamulideeda,gobaha heer qaran wanajinteda iyo isku xidhkeeda,iin la kordhyo sido kale hay’adeenta la kordhiyo mideen iyo salaam joogta la dhiso"  
+  utter_mission_tgr:
+    - text: "ናይ ዜጋ፡ ናይ ቤተሰብ እና ናይ ማሕበረሰብ ሰላም ብምሕላው ብምኽባር፡ ብሄራዊ ምርድዳእ እና ሃገራዊ ሓድነትን ብምዕባይ፡ ናይ ፌደራል ስርዓቱን ብምጥንኻር፡ ቅድሚ ኹሉ ብምርካብ ግጭት ብምምሕድዳር ቀጠናዊ እና ኣህጉራዊ ምትሕብባር እና ምትእስሳር ብምጉልባት ከምኡ እውን ተቋዋማዊነት ብምዕባይ ኩለንተናዊ እና ዘላቒ ሰላም ምህናፅ እዩ"
+
+
+
   utter_values_am:
     - text: "ሀገር-ወዳድነት፣ ሰላማዊነት፣ ህጋዊነት፣ ምክንያታዊነት፣ ዓለም-አቀፋዊነት"
+  utter_values_oro:
+    - text: "Jaalala biyyaa, nageenyummaa,seera qabeessummaa, sababa qabaachuu, Idil adunyummaa"
+  utter_values_som:
+    - text: "jaceelka wadanimada፣ nabadgaliyonimada ፣sharcinimadisa፣ ,sababnimada፣ ogaashaha aduun weeynaha"  
+  utter_values_tgr:
+    - text: "ሃገር ፈታውነት፡ ሰላማዊነት፡ ሕጋውነት፡ ምኽንያታዊነት፡ ዓለምለኻውነት" 
+
+
+
   utter_foundation_am:
     - text: "የሰላም ሚኒስቴር የኢትዮጵያ ፌደራላዊ ዲሞክራስያዊ ሪፐብሊክ የፌደራል መንግስት አስፈፃሚ አካላትን ስልጣንና ተግባር ለመወሰን በወጣው አዋጅ ቁጥር 1097/2011 አንቀፅ 13 ለመጀመሪያ ጊዜ ተቋቋመ፡፡ 
              በመቀጠልም በኢትዮጵያ ፌደራላዊ ዲሞክራሲያዊ ሪፐብሊክ የፌደራል መንግሥት አስፈፃሚ አካላትን ሥልጣንና ተግባር ለመወሰን በወጣው አዋጅ ቁጥር 1263/2014 እንደገና ተቋቁሟል፡፡"
+  utter_foundation_oro:
+    - text: "Ministeerri nageenyaa qaamoolee raawwachiiftuu mootummaa federaalaa diimokiraatawaa rippaablikaa itoophiyaa aangoo fi gocha murteesuudhaaf lakkoofsa labsii 1097/2011 keewwata 13  baaseen yeroo jalqabaatiif bu'ureeffame.
+              itti fufuudhaan qaamolee raawwachiiftuu mootummaa federaalaawaa diimookraatawaa riippaablikaa itoophiyaatti aangoo fi gocha murteessuudhaaf lakkoofsa labsii 1263/2014 baaseen irra deebiidhaan hundaa'eera."
+  utter_foundation_som:
+    - text: "ministeerka nabada jamuudiyada federaalka dimoqraadiga itoobiya dawlada federaalka mamuulka xubinta filinta ficiilka inay goamiyan ku dhaqadida lambaarka 1097/2011 mqaalka 13 marki ugu  horeysay aya la asaasay፡፡
+             Xigta jamuuriyada federaalka dimoqraadiya itoobiya  dawlada federaalka mamuulka xubinta filinta ficiilka inay goamiyan ku dhaqadida lambaarka 1263/2014 marlabaad la asaasay፡፡"
+  utter_foundation_tgr:
+    - text: "ናይ ሰላም ሚኒስቴር ናይ ኢትዮጵያ ፌደራላዊ ዲሞክራስያዊ ሪፐብሊክ ናይ ፌደራል መንግስቲ ኣስፈፃሚ ኣካላትን ስልጣን እና ተግባር ንምውሳን ብዝወፀ ኣዋጅ ቑፅሪ 1097/2011 ዓንቀፅ 13 ንመጀመርያ ግዜ ተመስሪቱ። ብምቕፃል እውን ብኢትዮጵያ ፌደራላዊ መንግስቲ ኣስፈፃሚ ኣካላት ስልጣን እና ተግባር ንምውሳን ብዝወፀ ኣዋጅ ቑፅሪ 1263/2014 እንደገና ተመስሪቱ።"
+
+
+
+
   utter_goodbye_am:
     - text: "የሰላም ሚኒስቴር ቻትቦትን በመጠቀምዎ እናመሰግናለን!"
+  utter_goodbye_oro:
+    - text: "Chatbot Ministeera Nageenyaa fayyadamuu keessaniif galatoomaa!"
+  utter_goodbye_som:
+    - text: "Waad ku mahadsan tahay isticmaalka Wasaaradda Nabadda Chatbot!"
+  utter_goodbye_tgr:
+    - text: "ቻትቦት ሚኒስትሪ ሰላም ስለ ዝተጠቐምኩም የቐንየልና!"
+    
+
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
 

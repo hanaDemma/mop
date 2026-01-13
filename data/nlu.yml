@@ -47,6 +47,77 @@ nlu:
     - ሠላም ናችሁ
     - ሠላም ነው
 
+- intent: greet_oro
+  examples: |
+    - Hayi
+    - Heloo
+    - Heyi
+    - Hayi
+    - Heloo
+    - Heyi
+    - Hayi
+    - Helo
+    - Hey
+    - Nagaa bultanii
+    - Nagaa bultanii
+    - Akkam ooltan
+    - Akkam ooltan
+    - Heyi Nagaa
+    - Nagaa
+    - Nagaa
+    - Fayyaa keessanii
+    - Nagaa keessanii
+    - Nagaadhaa
+    - Nagaa keessanii
+    - Nagaadhaa
+
+- intent: greet_som
+  examples: |
+    - salaan
+    - iska waran
+    - haa 
+    - salaan
+    - iska waran
+    - haa 
+    - salaan
+    - iska waran
+    - haa 
+    - Nabad ma ku bariday
+    - Nabad ma ku bariday
+    - habeen wacaan
+    - habeen wacaan
+    - haa Salaan
+    - salaan
+    - salaan
+    - Nabad sow matihidiin
+    - Salaan sow maaha
+    - Salaan maaha
+    - Salaan sow maaha
+    - Salaan sow maaha
+
+- intent: greet_tgr
+  examples: |
+    - ከመይ
+    - ሄሎ
+    - ሄይ
+    - ሐይ
+    - ሔሎ
+    - ሔይ
+    - ኀይ
+    - ኄሎ
+    - ኄይ
+    - ሰላም ሓዲሮም
+    - ሠላም ሓዲሮም
+    - ከመይ ኣምሽዮም
+    - ከመይ ኣምሽዮም
+    - ሄይ ሰላም
+    - ሠላም
+    - ሰላም
+    - ደሓን ዲኹም
+    - ሰላም ዲኹም
+    - ሰላም ድዩ
+    - ሠላም ዲኹም
+    - ሠላም ድዩ
 
 - intent: main_menu_am
   examples: |
@@ -61,6 +132,48 @@ nlu:
     - ማዉጫ
     - ሜኑ
     - መግቢያ
+  
+- intent: main_menu_oro
+  examples: |
+    - Gara meenuu guddichaatti na deebisi
+    - Gara meenuu guddichaatti na deebisi
+    - Gara meenuu guddichaatti na geessi
+    - Gara meenuu guddichaatti na deebisi
+    - Gara meenuu guddichaatti deemaa
+    - Bahiinsa
+    - Bahiinsa guddicha
+    - Bahiinsa  guddicha
+    - guddicha
+    - Meenuu
+    - Seensa
+
+- intent: main_menu_som
+  examples: |
+    - Menuga guud uu ceeli
+    - Minalega guud ii ceeli
+    - Minalega guud ii qaad
+    - Minalega guud ii qaad
+    - Minalega guud tagaa
+    - Bixitaan                
+    - Bixitaanka guud
+    - Bixitaanka guud
+    - Bixitaan
+    - Menu
+    - Galitaan
+  
+- intent: main_menu_tgr
+  examples: |
+    - ናብቲ ዋና ዝርዝር መልሰኒ
+    - ናብቲ ዋና ዝርዝር መልሰኒ
+    - ናብቲ ዋና ዝርዝር ውሰደኒ
+    - ናብቲ ዋና ዝርዝር ውሰደኒ
+    - ናብቲ ዋና ዝርዝር ይኪዱ
+    - ማውጫ                
+    - ዋና ማውጫ
+    - ዋና ማውጫ
+    - ማውጫ
+    - ዝርዝር
+    - መእተዊ
 
 - intent: goodbye_am
   examples: |
@@ -82,7 +195,80 @@ nlu:
     - እንደገና እናወራለን
     - ሌላ ጊዜ እንደገና እናወራለን
     - ሌላ ጊዜ እናወራለን
-
+- intent: goodbye_oro
+  examples: |
+    - Baayyee galatoomi
+    - Guyyaa gaarii
+    - Nagaan buli
+    - Nagaan buli
+    - Nagaan ooli
+    - Nagaan ooli
+    - Nagaan buli
+    - Nagaan ooli
+    - Galatoomaa gargaarsa keessaniif
+    - Galatoomi gargaarsa keeef
+    - Guyyaa gaarii
+    - Amma booda wal arguuf
+    - Halkan gaarii
+    - Baayyee nagaan buli
+    - Yeroo biraa wal argina
+    - Amma booda wal haasa'uu dandeenya
+    - Yeroo biraa amma booda wal haasa'uu dandeenya
+    - Yeroo biraa wal haasa'uu dandeenya
+- intent: goodbye_som
+  examples: |
+    -  Nabad gelyo
+    - Maalin wanaagsan
+    - Dhammaad
+    - Mahadsanid
+    - Nabad gelyo
+    - Nabad gelyo
+    - Nabad gelyo
+    - Nabad gelyo
+    - Nabad gelyo
+    - Waad ku mahadsan tahay caawimadaada
+    - Waad ku mahadsan tahay caawimadaada
+    - Maalin wanaagsan
+    - Mar kale is arag
+    - Fiid wanaagsan
+    - Nabad gelyo
+    - Mar kale is arag
+    - Mar kale is arag
+    - Mar kale is arag
+    - Mar kale is arag
+    - Mar kale is arag
+    
+- intent: goodbye_tgr
+  examples: |
+    - ቻው
+    - መልካም ቀን
+    - ኣለቀ
+    - ኣመሰግናለው
+    - ደሓን ኩን
+    - ደሓን ኩንልኒ
+    - ሰላም ኩን
+    - ሰላም ኩንልኒ
+    - ብድሓን ኣመሰግናለው
+    - ብድሓን ኣመሰግናለው
+    - መልካም ቀን
+    - ብድሓን ክንገናን
+    - መልካም ምሽት
+    - ቻው ቻው
+    - ግዜ ወደገና ክንገናን
+    - ብድሓን ክንወያይ
+    - ግዜ ወደገና ብድሓን ክንወያይ
+    - ግዜ ወደገና ብድሓን ཨችየይ
+    - ሰላም ኩን
+    - ንዝገበርኩምልና ሓገዝ የቐንየልና
+    - ንዝገበርኩምልና ሓገዝ የቐንየልና
+    - ብሩኽ መዓልቲ
+    - ዳግማይ የራኽበና።
+    - ከመይ ኣምሽዮም
+    - ቻው
+    - ዳግማይ የራኽበና።
+    - ደጊምካ ተዛረብ
+    - ደጊምካ ተዛረብ
+    - ደጊምካ ተዛረብ
 
 - intent: about_us_am
   examples: |
@@ -102,6 +288,60 @@ nlu:
     - ይህ ሚኒስቴር ምንድነው ስራው?
     - የሰላም ሚኒስቴር ምን ዓይነት ተግባር አለው?
 
+- intent: about_us_oro
+  examples: |
+    - Waa'ee ministeera nageenyaa natti himi
+    - Waa'ee ministeerichaa natti himi
+    - Ministeerri nageenyaa maaliidha?
+    - Waa'ee ministeerichaa
+    - Waa'ee ministeera nageenyaa
+    - Ministeerri nageenyaa eenyuudha ? 
+    - Ministeerri nageenyaa hojiin isaa maaliidha?
+    - Minsteerri nageenyaa maal hojjeta?
+    - Ministeera nageenyaa
+    - Hojii ministeera nageenyaa
+    - Waa'ee ministeera nageenyaa xiqqoo ishee natti himi
+    - Hojiiwwan ministeera nageenyaa maal maal fa'i?
+    - Waa'ee ministeera nageenyaa xiqqoo ishee natti himi
+    - Ministeerri kun hojiin isaa maaliidha?
+    - nageenyaa gocha akkamii qaba
+
+- intent: about_us_som
+  examples: |
+    - bal ministeerka nabada nosheeg
+    - bal ministeerka noosheeg 
+    - ministeerka nabadu waa maxay?
+    - bal ministeerka 
+    - bal ministeerka nabada
+    - ministeerka nabadu waa ayo? 
+    - ministeerka nabada shaqadiisu waa maxay?
+    - ministeerka nabada shaqadiisu waa maxay 
+    - miniteerka nabadu muxuu ka shaqeeya 
+    - Ministeerka nabada  
+    - Ministeerka nabada shaqadiisa 
+    - bal ministeerka nabada wax yar ii sheeg
+    - ministeerka nabada shaqadiisu maxay maxay kala yihiin
+    - bal ministeerka nabada wax yar ii sheeg
+    - ministeerkan maxay tahay shaqadiisu 
+    - ministeerkani nabadu muxuu qorshayaal leyahay 
+
+- intent: about_us_tgr
+  examples: |
+    - ብዛዕባ ሰላም ሚኒስቴር ንገረኒ
+    - ብዛዕባ እቲ ሚኒስቴር ንገረኒ
+    - ሰላም ሚኒስቴር እንታይ እዩ?
+    - ብዛዕባ ሚኒስቴሩ
+    - ብዛዕባ ሰላም ሚኒስቴር
+    - ሰላም ሚንስተር መን እዩ? 
+    - ሰላም ሚንስተር ስራሑ እንታይ እዩ?
+    - ሰላም ሚኒስተር እንታይ ይሰርሕ?
+    - ሰላም ሚንስተር 
+    - ናይ ሰላም ሚኒስተር ስራሕ
+    - ብዛዕባ ሰላም ሚኒስቴር ቁሩብ ንገረኒ
+    - ናይ ሰላም ሚኒስቴር ስራሕቲ እንታይ እንታይ እዮም?
+    - ብዛዕባ ሰላም ሚኒስቴር ቁሩብ ንገረኒ?
+    - እዚ ሚኒስቴር እንታይ እዩ ስራሑ?
+    - ናይ ሰላም ሚኒስቴር እንታይ ዓይነት ተግባር ኣለዎ?
 
 - intent: vision_am
   examples: |
@@ -118,6 +358,50 @@ nlu:
     - በወደፊት ሚኒስቴሩ ምን ሊደርስ ይፈልጋል?
     - የሚኒስቴሩ ረጅም ጊዜ እቅድ ምንድን ነው?
 
+- intent: vision_oro
+  examples: |
+    - Mul'anni ministeera nageenyaa maaliidha?
+    - Mul'ata ministeera nageenyaa
+    - Mul'anni ministeerichaa maaliidha?
+    - Mul'ata ministeerichaa
+    - Mul'ata
+    - Waa'ee galmawwan yeroo dheeraa natti himuu ni dandeessuu?
+    - Galmawwan yeroo dheeraa natti himuu ni dandeessuu?
+    - Ministeerichi gara fuulduraaf maal milkeessuuf abdata
+    - Kaayyoon ministeerichaa gara fuula duraa maaliidha?
+    - Ilaalchi ministeera nageenyaa maaliidha
+    - Gara fuulduraaf ministeerrichi maal gahuu barbaada
+    - Kaayyoon Yeroo dheeraa ministeerichaa maaliidha?
+
+- intent: vision_som
+  examples: |
+    - miniteerka nabadu yoolkisu waa maxay 
+    - ministeerka nabada yoolkisa 
+    - miniteerka nabadu yoolkisu waa maxay
+    - ministeerka nabada yoolkisa 
+    - yool
+    - bal qorshayaashada fog waad nala wadaagi karta 
+    - bal qorshayaashada fog waad nala wadaagi karta
+    - ministeerku mustaqbalka muxuu inu hirgaliyo rajo leyahay 
+    - ministeerku mustaqbalka qorshayaashisu maxay yihiin 
+    - ministeerka nabadu cawamaadisu waa maxay 
+    - mustaqbalka ministeerku maxay inu gadhu doonaya 
+    - mnisteerku qorshihiisa aragtiida fog waa maxay 
+
+- intent: vision_tgr
+  examples: |
+    - ናይ ሰላም ሚኒስቴር ራእይ እንታይ እዩ?
+    - ናይ ሰላም ሚኒስቴር ራእይ
+    - ናይቲ ሚኒስተር ራእይ እንታይ እዩ?
+    - ናይቲ ሚኒስቴር ራእይ
+    - ራእይ
+    - ብዛዕባ እቲ ነዊሕ ሽቶኦም ክነግሩኒ ይኽእሉ ዶ?
+    - ናይ ነዊሕ ሸቶኦም ክነግሩኒ ይኽእሉ ዶ?
+    - እቲ ሚኒስቴር ንመፃኢ እንታይ ከሳኽዕ ተስፋ ይገብር?
+    - ናይቲ ሚኒስተር ናይ መፃኢ ትልምታቱ እንታይ እዮም?
+    - ናይ ሰላም ሚኒስቴር ራእዩ እንታይ እዩ?
+    - ንመፃኢ እቲ ሚኒስቴር እንታይ ክበፅሕ ይደሊ?
+    - ናይቲ ሚኒስቴር ናይ ነዊሕ ግዜ ዕቕዱ እንታይ እዩ?
 
 - intent: mission_am
   examples: |
@@ -133,6 +417,51 @@ nlu:
     - ይህ አካል በምን ምክንያት ነው የተመሰረተው?
     - የእናንተ ዋና ዓላማ ምንድን ነው?
     - እሄ ሚኒስትር ምን ችግር ለመፍታት ነው የተቋቋመው?
+
+- intent: mission_oro
+  examples: |
+    - Ergamni ministeera nageenyaa maaliidha?
+    - Ergamni guddaan ministeera nageenyaa maaliidha?
+    - Ergama ministeera nageenyaa
+    - Waa'ee ergama ministeera nageenya natti himi
+    - Ergama
+    - Ergamawwan ministeera nageenyaa 
+    - Ergamni ministeericha maaliidha
+    - Ergama ministeericha
+    - Kaayyoo guddaan ministeera nageenyaa maaliidha 
+    - Qaamni kun sababa maaliif hundaa'e?
+    - Kaayyoon keessan inni guddaan maaliidha?
+    - MInisteerri kun rakkoo maalii furuudhaaf hundeeffame?
+
+- intent: mission_som
+  examples: |
+    - ministeerka nabada hawlgalkisu waa maxay 
+    - ministeerka nabada hawgalkisu uu weey waa maxay
+    - ministeedka nabada hawgalkiisa 
+    - bal ministeerka nabada hawlgalkisa nosheeg 
+    - hawlgal
+    - ministeerka nabada hawlgalkiisa  
+    - ministeerka hawlgalkisu waa maxay 
+    - ministeerka hawlgalkisa 
+    - ministeerka nabada uu jeedadisa ugu weeyn waa maxay 
+    - xubinkan maxay tahay sabaabta loo asaasay 
+    - idinkuna uu jeedadina ugu weeyni waa maxay 
+    - ministeerkani dhibaato noceeya inu xaliyo ayaa loo asaasay  
+
+- intent: mission_tgr
+  examples: |
+    - ናይ ሰላም ሚኒስቴር ተልእኮ እንታይ እዩ
+    - ናይ ሰላም ሚኒስተር ቀንዲ ተልእኾኡ እንታይ እዩ?
+    - ናይ ሰላም ሚኒስቴር ተልእኾ
+    - ብዛዕባ ሰላም ሚኒስተር ተልእኾ ንገረኒ
+    - ተልእኾ
+    - ናይ ሰላም ሚኒስቴር ተልእኾታት
+    - ናይ ሚኒስቴሩ ተልእኾ እንታይ እዩ?
+    - ናይ ሚኒስተሩ ተልእኾ
+    - ናይ ሰላም ሚኒስቴር ቀንዲ ዕላማ እንታይ እዩ?
+    - እዚ ኣካል ብምንታይ ምኽንያት እዩ ተመስሪቱ?
+    - ናትኹም ቀንዲ ዕላማ እንታይ እዩ?
+    - እዙይ ሚኒስቴር እንታይ ሽግር ንምፍታሕ እዩ ተቋቊሙ?
 
 
 - intent: values_am
@@ -150,6 +479,51 @@ nlu:
    - ስለ ሰላም ሚኒስቴር እሴቶች ንገረኝ
    - ስለ ሚኒስቴሩ እሴቶች ንገረኝ
 
+- intent: values_oro
+  examples: |
+   - Duudhaalee ministeera nageenyaa
+   - Duudhaaleen gurguddaan ministeera nageenyaa maal fa'i?
+   - Duudhaaleen ministeera nageenyaa maal fa'i?
+   - Duudhaaleen guddaan ministeera nageenyaa maal fa'i?
+   - እሴቶች(Duudhaalee guddaa ministeera nageenyaa
+   - Duudhaalee ministeera nageenyaa
+   - Duudhaaleen ministeera nageenyaa maal fa'i?
+   - Duudhaaleen guddaan ministeera Nageenyaa
+   - Duudhaa
+   - Duudhaalee
+   - ንገረኝ(Waa'ee duudhaalee Ministeera nageenyaa natti himi
+   - Waa'ee duudhaalee ministeericha natti himi
+
+- intent: values_som
+  examples: | 
+   - ministeerka nabada qiimaha
+   - ministeerka  qiimaha  ugu waweeyn waa maxay 
+   - ministeerka nabada  qiimeenta waa maxay 
+   - ministeerka nabada  qiimaha  ugu weeyn waa maxay
+   - ministeerka nabada qiimaha uu weeyn 
+   - ministeerka nabada   qiimaha
+   - ministeerka nabada qiimaha waa maxay
+   - ministeerka nabada qiimaha waa maxay
+   - qimeeyn 
+   - qiimaha  
+   - bal qiimaha ministeerka nabada ii sheeg 
+   - bal ministeerka nabada qiimaha ii sheeg 
+
+- intent: values_tgr
+  examples: | 
+   - ናይ ሰላም ሚኒስቴር እሴታት
+   - ናይ ሰላም ሚኒስቴር ቀንዲ ቀንዲ እሴታት እንታይ እዮም ? 
+   - ናይ ሰላም ሚኒስቴር እሴታት እንታይ እዮም ? 
+   - ናይሰላም ሚኒስቴር ቀንዲ እሴታት እንታይ እዮም?
+   - ናይ ሰላም ሚኒስቴር ቀንዲ እሴታት
+   - ናይ ሰላም ሚኒስተር እሴታትት
+   - ናይቲ ሚኒስተር እሴታት እንታይ እዮም?
+   - ናይቲ ሚኒስቴር ቀንዲ እሴታት እንታይ እዮም
+   - እሴት
+   - እሴታት
+   - ብዛዕባ ሰላም ሚኒስቴር እሴታት ንገረኒ
+   - ብዛዕባ ሚኒስተሩ እሴታት ንገረኒ
+
 
 - intent: foundation_am
   examples: |
@@ -166,6 +540,50 @@ nlu:
    - ታሪካቹን በአጭር ንገረኝ
    - የሰላም ሚኒስቴር እንዴት ተጀመረ?
 
+- intent: foundation_oro
+  examples: |
+   - Ministeerichi yoom Dhaabbate?
+   - Waa'ee hundeeffama miisteera nageenyaa natti himi
+   - Ministeerri nageenyaa maaliif hundeeffame
+   - Ministeerichi yoom hundeeffame
+   - Ministeerri nageenyaa yoom hundeeffame
+   - ministeerri nageenyaa yoom hundeeffame
+   - ministeerri nageenya maaliif hundeeffame
+   - Seenaan ministeera nageenyaa maal fakkaata
+   - Seenaa ministeera nageenyaa natti himi
+   - Seenaan ministeerichaa maal fakkaata?
+   - Seenaa kee gabaabinaan natti himi
+   - Ministeerri nageenyaa akkamitti jalqabame?
+
+- intent: foundation_som
+  examples: |
+   - ministeerka gorma la asaasay 
+   - bal ministeerka nabada asaaskisa ii sheeg 
+   - ministeerka nabada maxaa lo asaasay 
+   - ministeerka gorma la asaasay 
+   - Ministeerka nabada gorma la asaasay 
+   - Ministeerka nabada gorma la asaasay
+   -  Ministeerka nabada maxaa loo asaasay
+   - Ministeerka nabada tariikhdisu maxay uu eeg tahay 
+   - Ministeerka nabada tariikhdisa ii sheeg 
+   - Ministeerka tariikhdisu maxay uu eeg tahay 
+   - tariikhaha bal iyagu gaban ii sheeg 
+   - Ministeerka nabada side lagu bilaabay
+
+- intent: foundation_tgr
+  examples: | 
+    - ሚኒስተሩ መኣዝ ተቋቊሙ?
+    - ብዛዕባ ሚኒስተር ምስረታ ንገረኒ 
+    - ሰላም ሚኒስቴር ንምንታይ ተመስሪቱ
+    - ሚኒስተሩ መዓዝ ተመስሪቱ
+    - ናይ ሰላም ሚኒስቴር መዓዝ ተቋቊሙ?
+    - ሰላም ሚኒስቴር መዓዝ ተመስሪቱ
+    - ሰላም ሚኒስቴር ንምንታይ ተመስሪቱ
+    - ናይ ሰላም ሚኒስቴር ታሪኽ እንታይ ይመስል?
+    - ናይ ሰላም ሚኒስቴር ታሪኽ ንገረኒ
+    - ናይቲ ሚኒስተር ታሪኽ እንታይ ይመስል?
+    - ታሪኻቱ ብሓፂር ንገረኒ
+    - ናይ ሰላም ሚኒስቴር ከመይ ተጀሚሩ?
 
 - intent: conflict_report_am
   examples: |
@@ -184,6 +602,48 @@ nlu:
     - incident report
     - report conflict
 
+- intent: conflict_report_oro
+  examples: |
+    - Gabaasa waldhabdee kennuun barbaada
+    - Gabaasa waldhabdee
+    - Rakkoo jiru
+    - Gabaasa waldhabdee nan dhiyeessa
+    - waldhabdee daddabarsuun barbaada
+    - waldhabdee qopheessuun barbaada 
+    - Gabaasa taatee dhiyeessuun barbaada
+    - waldhabdee gabaasuun barbaada
+    - Rakkoo
+    - Odeeffannoo kennuu barbaada
+    - Gabaasa dhiyeessuu barbaada
+
+- intent: conflict_report_som
+  examples: | 
+    - colaad warbixint inaan siiyaan raba 
+    - Colaad inaan ku sheegan rabaa 
+    - warbixin colaadan soo jeedinaya 
+    - colaad dgudbin baan rabaa 
+    - Colaad diyaarin baan rabaa  
+    - Colaad baa jirte haan bixiyo  
+    - dhacdo warbixin inaan jeediyan rabaa  
+    - Colaad inaan diwaan galiyan rabaa 
+    
+- intent: conflict_report_tgr
+  examples: | 
+    - ፀብፃብ ግርጭት ከቕርብ ደልየ ኣለኹ
+    - ግርጭት ክዛረብ ይደሊ
+    - ፀብፃብ ግርጭት ከቕርብ እየ
+    - በካብ ግርጭት ክቑጠብ እየ ዝደሊ
+    - ንግርጭት ክዳሎ እየ ዝደሊ
+    - ፀብፃብ ሪፖርት ከቕርብ እፈቱ
+    - ግርጭት ክሕብር ደልየ ኣለኹ
+    - ፀብፃብ ግርጭት ከቕርብ ደልየ ኣለኹ
+    - ግርጭት ክዛረብ ይደሊ
+    - ፀብፃብ ግርጭት ከቕርብ እየ
+    - በካብ ግርጭት ክቑጠብ እየ ዝደሊ
+    - ንግርጭት ክዳሎ እየ ዝደሊ
+    - ፀብፃብ ሪፖርት ከቕርብ እፈቱ
+    - ግርጭት ክሕብር ደልየ ኣለኹ
+
 - intent: new_conflict_report
   examples: |
     - አዲስ የሚቀርብ
@@ -193,7 +653,30 @@ nlu:
     - ሪፖርት መጀመር
     - አዲስ
 
-- intent: conflict_status
+- intent: new_conflict_report_oro
+  examples: |
+    - Gabaasa waldhabdee haaraa kennuun barbaada 
+    - waldhabdee haaraa gabaasuun barbaada
+    - Waldhabdee qooduun barbaada
+    - Gabaasa haaraa dhiyeessuun barbaada
+    - Gabaasa jalqabu
+  
+- intent: new_conflict_report_som
+  examples: | 
+    - Xalada warbixin teeyda inaan soo jeediyan rabaa 
+    - colaad warxibinta halkeey maraysa 
+    - Warxibitan ku soo jeediyaay falanqee 
+    - Colaada warxibinta xaladeed ii tuusa  
+
+- intent: new_conflict_report_tgr
+  examples: | 
+    - ሓዱሽ ግርጭት ሪፖርት ምሃብ ይደሊ
+    - ሓዱሽ ግርጭት ክሕብር ደልየ ኣለኹ
+    - ግርጭት ከካፍል ይደሊ
+    - ናይ ሓዲሽ ሪፖርት ከቕርብ እፈቱ
+    - ናይ ሓዲሽ ሪፖርት ጀመር
+
+- intent: conflict_status_am
   examples: |
     - ግጭት ሪፖርት ሁኔታ
     - የሪፖርት ሁኔታ
@@ -203,28 +686,230 @@ nlu:
     - ያለፈውን ሪፖርት ሁኔታ አሳየኝ
     - የሪፖርት ደረጃ
 
-- intent: affirm
+- intent: conflict_status_oro
+  examples: | 
+    - Haala gabaasa kiyyaa beekuun barbaada
+    - Gabaasichi waldhabdee haala maalii irra jira
+    - Gabaasnin ani dhiyeesse qoratamee
+    - Haala gabaasa waldhabdee natti agarsiisa
+    - Haala gabaasa koo arguuf barbaada
+
+- intent: conflict_status_som
+  examples: | 
+    - Xaalada warbixintayda inaan ogaado raba 
+    - Xalada warbixin teeyda inaan soo jeediyan rabaa 
+    - warbixintaydu xaaladeedu sidee tahay 
+    - colaad warxibinta halkeey maraysa 
+    - warbixintii aan soo jeediyay la baaray 
+    - Warxibitan ku soo jeediyaay falanqee 
+    - Xaalada warbixintayda ii soo bandhig 
+    - Colaada warxibinta xaladeed ii tuusa 
+    - Xaalada warbixintayda inaan arko raba
+
+- intent: conflict_status_tgr
   examples: |
-    - yes
-    - yup
-    - sure
+    - ሪፖርተይ ኩነት ምፍላጥ ይደሊ
+    - ናይ ግርጭት ሪፖርት ሁኔታ እንታይ እዩ
+    - ግርጭት ሪፖርት ኣብ ምንታይ ኩነት እዩ ዘሎ?
+    - ናይ ግርጭት ሪፖርት ሁኔታ እንታይ እዩ
+    - ዘቕረብክዎ ሪፖርት ተመርሚሩ?
+    - ናይ ግጭት ኩነታቱ ኣርእዩኒ?
+
+- intent: Risk_Scores_am
+  examples: |
+    - የአደጋ ደረጃዎችን አሳዩኝ 
+    - የአደጋ መጠን ምንድን ነው? 
+    - የአደጋ ክብደት ምንድን ነው?
+    - የአደጋ ምድቦችን ማየት እፈልጋለሁ 
+    - አደጋ ደረጃ አሳየኝ 
+    - አደጋ እንዴት ይለካል? 
+    - የአደጋ መመዝገቢያ እንዴት ነው? 
+    - ደረጃዎቹን ይንገሩኝ 
+
+- intent: Risk_Scores_oro
+  examples: |
+    - Sadarkaa balaa na agarsiisi
+    - Sadarkaa balaa maal fa'i?
+    - Sadarkaa balaa maal fa'i?
+    - Sadarkaa balaa arguu barbaada
+    - Sadarkaa balaa na agarsiisa
+    - Balaa akkamitti tilmaamama?
+    - Galmee balaa akkamitti ta'a?
+    - Sadarkaa isaanii naaf ibsi
+    - Sadarkaa balaawwanii natti agarsiisaa
+    - Hammi balaa maaliidha
+    - Ulfaatinni balaa maaliidha
+    - Ramaddiiwwan balaa ilaaluun barbaada
+    - Sadarkaa balaa natti agarsiisi
+    - Sadarkaawwan natti himaa
+
+- intent: Risk_Scores_som
+  examples: |
+    - Tarajooyinka shilaalka ituusa
+    - cabbiirka shilku waa maxay 
+    - Culeeyska (misaanka) shilku waa maxay 
+    - qaybaha shilka inaan arkan rabaa 
+    - Tarajooyinka shilka ii tuus 
+    - shiilka side loo diraya 
+    - Shiilka side loo duwaan galiya      
+    - Darajooyinka ii sheeg 
+
+- intent: Risk_Scores_tgr
+  examples: |
+    - ናይ ሓደጋ ደረጃታት ኣርእዩኒ
+    - ናይ ሓደጋ መጠን እንታይ እዩ?
+    - ናይ ሓደጋ ክብደት እንታይ እዩ?
+    - ናይ ሓደጋ ምድባት ምርኣይ ይደሊ እየ
+    - ሓደጋ ደረጃ ኣርእየለይ
+    - ሓደጋ ከመይ ይልካዕ?
+    - ናይ ሓደጋ መመዝገቢ ከመይ እዩ?
+    - ደረጃታቱ ይነግሩኒ
+
+- intent: FAQ_am
+  examples: |
+    - የተለመዱ ጥያቄዎች
+    - ተደጋጋሚ ጥያቄዎች
+    - አስተያየቶች እና ጥያቄዎች
+    - አስተያየቶች እና ጥያቄዎች ምርጫ
+    - FAQ
+    - የተለመዱ ጥያቄዎችን አሳይኝ
+    - ተደጋጋሚ ጥያቄዎች አሳየኝ 
+    - FAQ አሳዩኝ 
+    - የተለመዱ ጥያቄዎች ምን ናቸው? 
+    - ብዙ ጊዜ የሚጠየቁ ጥያቄዎች 
+    - ተደጋጋሚ ጥያቄ አለ? 
+    - ስለ አገልግሎቱ ተደጋጋሚ ጥያቄዎች 
+    - FAQ ዝርዝር አሳዩኝ 
+    - እንዲህ ያሉ ጥያቄዎች ምን ናቸው? 
+
+- intent: FAQ_oro
+  examples: |
+    - Gaaffilee yeroo baayyee gaafatan
+    - Gaaffilee yeroo baayyee deebii argatan
+    - Yaada fi gaaffilee
+    - Yaada fi gaaffilee filannoo
+    - FAQ
+    - Gaaffilee yeroo baayyee gaafatan na agarsiisi
+    - Gaaffilee yeroo baayyee deebii argatan na agarsiisa
+    - FAQ na agarsiisa
+    - Gaaffileen yeroo baayyee gaafatan maal fa'i?
+    - Gaaffilee yeroo baayyee gaafatan
+    - Gaaffii yeroo baayyee gaafatan ni jiraa?
+    - Gaaffilee yeroo baayyee gaafatan waa'ee tajaajilaa
+    - FAQ tarree na agarsiisi
+    - Gaaffileen akkasiin maal fa'i?
+
+- intent: FAQ_som
+  examples: | 
+    - Su'aalaha inta badan la isweydiiyo 
+    - Su'aalaha inta badan la isweydiiyo iyo jawaabahooda 
+    - Fikirka iyo su'aalaha 
+    - Fikirka iyo su'aalaha xulashada 
+    - FAQ 
+    - Su'aalaha inta badan la isweydiiyo ii soo bandhig 
+    - Su'aalaha inta badan la isweydiiyo iyo jawaabahooda ii soo bandhig 
+    - FAQ ii soo bandhig 
+    - Su'aalaha inta badan la isweydiiyo maxay yihiin 
+    - Su'aalaha inta badan la isweydiiyo 
+    - Su'aal joogto ah ma jirtaa? 
+    - Su'aalaha inta badan la isweydiiyo ee ku saabsan adeegga 
+    - FAQ liiska ii soo bandhig 
+    - Su'aalaha noocan oo kale ah maxay yihiin
+
+- intent: FAQ_tgr
+  examples: |
+    - ተደጋጋሚ ሕቶታት ኣርእየለይ
+    - FAQ ኣርእዩኒ
+    - ዝተለመዱ ሕቶታት እንታይ እዮም
+    - ብዙሕ ግዜ ዝሕተቱ ሕቶታት
+    - FAQ
+    - ተደጋጋሚ ሕቶ ኣሎ?
+    - ብዛዕባ እቲ ኣገልግሎቱ ተደጋጋሚ ሕቶታት
+    - FAQ ኣርእዩኒ
+    - FAQ ዝርዝር ኣርእዩኒ
+    - ከምዚ ዝበሉ ሕቶታት እንታይ እዮም?
+  
+- intent: help_am
+  examples: |
+    - እርዳታ እፈልጋለሁ
+    - እርዳታ
+    - እርዳታ ማግኘት እፈልጋለሁ
+    - እባክህ እርዳኝ 
+    - ለእርዳታ እየፈለግሁ ነው  
+    - ማገዝ ትችላለህ? 
+    - መረጃ እፈልጋለሁ እርዳታ ይፈልጋል 
+    - እገዛ አሳዩኝ 
+
+- intent: help_oro
+  examples: | 
+    - Gargaaruu barbaada
+    - Gargaaruu
+    - Gargaaruu argachuu barbaada
+    - Na gargaari
+    - Na gargaartu?
+    - Odeeffannoo barbaada gargaaruun barbaada
+    - Na gargaari
+
+- intent: help_som
+  examples: | 
+    - Caawina ayaan rabaa 
+    - Caawina 
+    - Caawina helid rabaa 
+    - I caawi 
+    - Ma i caawin kartaa? 
+    - Macluumaad ayaan rabaa caawinaadna waan u baahanahay 
+    - I caawi
+
+- intent: help_tgr
+  examples: | 
+    - እርዳእ እፈልጋለይ
+    - እርዳእ
+    - እርዳእ ምግነይ እፈልጋለይ
+    - ኣርዳእኒ
+    - እቲ ኣርዳእ ትችላዕ?
+    - መረጋገጺ እፈልጋለይ እርዳእ ትፈልጋለይ
+    - እገዚ ኣርእዩኒ 
     - ok
     - true
     - አዎ
     - ትክክል
     - እሺ
 
-- intent: deny
-  examples: |
-    - no
-    - nope
-    - false
-    - never
-    - አይ
-    - አይደለም
-    - አልፈልግም
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - am I talking to a bot?
+    - are you human?
+    - is this a bot?  
+    - are you real?
+    - እርስዎ ቦት ነዎት?
+    - እኔ ከቦት ጋር እያወያይሁ ነው?
+    - እርስዎ ሰው ናቸው?
+    - ይህ ቦት ነው?
+    - እርስዎ እውነተኛ ናቸው?
+    - አንተ ቦት ነህ
+    - እኔ ከቦት ጋር እያወያይሁ ነኝ?
+    - አንተ ሰው ነህ?
+    - ይህ ቦት ነው?
+    - አንተ እውነተኛ ነህ?
+    - ma waxaad tahay bot?
+    - ma la hadlayaa bot?
+    - ma tahay bini'aadam?
+    - ma kani waa bot?
+    - ma tahay mid dhab ah?
+    - adigu bot baad tahay
+    - aniga ma la hadlayaa bot baan?
+    - adigu bini'aadam baad tahay?
+    - kani ma bot baa?
+    - adigu mid dhab ah baad tahay?
+    - adde bot tiya
+    - aniga adde bot tiya waliin haasa'aa jiraa?
+    - adde nama tiya?
+    - kani adde bot tiya?
+    - adde dhugaa tiya?
+    - ንስኻ ቦት ኢኻ?
+    - ኣነ ከቦት ጋር እያወያይ እየ?
+    - ንስኻ ሰብ ኢኻ?
+    - እዚ ቦት እዩ?
+    - ንስኻ እውነተኛ ኢኻ?
+    
