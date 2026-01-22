@@ -10,27 +10,213 @@ stories:
     - intent: about_us_am
     - action: utter_about_us_am
 
+- story: user asks about the ministry
+  steps:
+    - intent: greet_oro
+    - action: utter_greet_oro
+    - intent: about_us_oro
+    - action: utter_about_us_oro
+
+- story: user asks about the ministry
+  steps:
+    - intent: greet_som
+    - action: utter_greet_som
+    - intent: about_us_som
+    - action: utter_about_us_som
+
+- story: user asks about the ministry
+  steps:
+    - intent: greet_tgr
+    - action: utter_greet_tgr
+    - intent: about_us_tgr
+    - action: utter_about_us_tgr
+
 - story: user asks for vision
   steps:
     - intent: vision_am
     - action: utter_vision_am
+- story: user asks for vision
+  steps:
+    - intent: vision_oro
+    - action: utter_vision_oro  
+- story: user asks for vision
+  steps:
+    - intent: vision_som
+    - action: utter_vision_som
+- story: user asks for vision
+  steps:
+    - intent: vision_tgr
+    - action: utter_vision_tgr
+
 
 - story: user asks for mission
   steps:
     - intent: mission_am
     - action: utter_mission_am
+- story: user asks for mission
+  steps:
+    - intent: mission_oro
+    - action: utter_mission_oro 
+- story: user asks for mission
+  steps:
+    - intent: mission_som
+    - action: utter_mission_som
+- story: user asks for mission
+  steps:
+    - intent: mission_tgr
+    - action: utter_mission_tgr 
 
 - story: user asks for values
   steps:
     - intent: values_am
     - action: utter_values_am
-
+- story: user asks for values
+  steps:
+    - intent: values_oro
+    - action: utter_values_oro
+- story: user asks for values
+  steps:
+    - intent: values_som
+    - action: utter_values_som
+- story: user asks for values
+  steps:
+    - intent: values_tgr
+    - action: utter_values_tgr
+  
 - story: user asks for foundation
   steps:
     - intent: foundation_am
     - action: utter_foundation_am
+- story: user asks for foundation
+  steps:
+    - intent: foundation_oro
+    - action: utter_foundation_oro  
+- story: user asks for foundation
+  steps:
+    - intent: foundation_som
+    - action: utter_foundation_som
+- story: user asks for foundation
+  steps:
+    - intent: foundation_tgr
+    - action: utter_foundation_tgr
 
 - story: user says goodbye
   steps:
     - intent: goodbye_am
     - action: utter_goodbye_am
+- story: user ask for conflict report
+  steps:
+    - intent: conflict_report_am
+    - action: utter_conflict_report_am
+- story: user ask for conflict report
+  steps:
+    - intent: conflict_report_oro
+    - action: utter_conflict_report_oro
+- story: user ask for conflict report
+  steps:
+    - intent: conflict_report_som
+    - action: utter_conflict_report_som
+- story: user ask for conflict report
+  steps:
+    - intent: conflict_report_tgr
+    - action: utter_conflict_report_tgr
+- story: user ask for new conflict report
+  steps:
+    - intent: new_conflict_report_am
+    - action: utter_new_conflict_report_am
+- story: user ask for new conflict report
+  steps:
+    - intent: new_conflict_report_oro
+    - action: utter_new_conflict_report_oro
+- story: user ask for new conflict report
+  steps:
+    - intent: new_conflict_report_som
+    - action: utter_new_conflict_report_som
+- story: user ask for new conflict report
+  steps:
+    - intent: new_conflict_report_tgr
+    - action: utter_new_conflict_report_tgr
+- story: user ask for conflict status
+  steps:
+    - intent: conflict_status_am
+    - action: utter_conflict_status_am
+- story: user ask for conflict status
+  steps:
+    - intent: conflict_status_oro
+    - action: utter_conflict_status_oro
+- story: user ask for conflict status
+  steps:
+    - intent: conflict_status_som
+    - action: utter_conflict_status_som
+- story: user ask for conflict status
+  steps:
+    - intent: conflict_status_tgr
+    - action: utter_conflict_status_tgr
+- story: user ask for risk score
+  steps:
+    - intent: risk_score_am
+    - action: utter_risk_score_am
+- story: user ask for risk score
+  steps:
+    - intent: risk_score_oro
+    - action: utter_risk_score_oro
+- story: user ask for risk score
+  steps:
+    - intent: risk_score_som
+    - action: utter_risk_score_som
+- story: user ask for risk score
+  steps:
+    - intent: risk_score_tgr
+    - action: utter_risk_score_tgr
+- story: user ask for FAQ
+  steps:
+    - intent: FAQ_am
+    - action: utter_FAQ_am
+- story: user ask for FAQ
+  steps:
+    - intent: FAQ_oro
+    - action: utter_FAQ_oro
+- story: user ask for FAQ
+  steps:
+    - intent: FAQ_som
+    - action: utter_FAQ_som
+- story: user ask for FAQ
+  steps:
+    - intent: FAQ_tgr
+    - action: utter_FAQ_tgr
+- story: user ask for help
+  steps:
+    - intent: help_am
+    - action: utter_help_am
+- story: user ask for help
+  steps:
+    - intent: help_oro
+    - action: utter_help_oro
+- story: user ask for help
+  steps:
+    - intent: help_som
+    - action: utter_help_som
+- story: user ask for help
+  steps:
+    - intent: help_tgr
+    - action: utter_help_tgr  
+- story: user says goodbye
+  steps:
+    - intent: goodbye_am
+    - action: utter_goodbye_am
+- story: user says goodbye
+  steps:
+    - intent: goodbye_oro
+    - action: utter_goodbye_oro
+- story: user says goodbye
+  steps:
+    - intent: goodbye_som
+    - action: utter_goodbye_som
+- story: user says goodbye
+  steps:  
+    - intent: goodbye_tgr
+    - action: utter_goodbye_tgr
+- story: bot challenge
+  steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
