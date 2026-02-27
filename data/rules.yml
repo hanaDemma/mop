@@ -2,6 +2,12 @@ version: "3.0"
 
 rules:
 
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback_am
+  - action: utter_please_rephrase_am
+
+
 # Rule 1: Start → activate form only once
 - rule: Activate language form on start
   steps:
@@ -27,7 +33,7 @@ rules:
   # Rule 2: When user clicks "New Report" -> Start the Form
 - rule: Activate incident form (New)
   steps:
-    - intent: new_conflict_report
+    - intent: new_conflict_report_am
     - action: incident_form
     - active_loop: incident_form
 
@@ -45,5 +51,11 @@ rules:
   # Rule 4: Status Check (Optional)
 - rule: Check conflict status
   steps:
-    - intent: conflict_status
-    - action: utter_conflict_status_check
+    - intent: conflict_status_am
+    - action: utter_conflict_status_am
+
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback_am
+  - action: utter_please_rephrase_am

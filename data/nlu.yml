@@ -111,7 +111,6 @@ nlu:
     - ከመይ ኣምሽዮም
     - ከመይ ኣምሽዮም
     - ሄይ ሰላም
-    - ሠላም
     - ሰላም
     - ደሓን ዲኹም
     - ሰላም ዲኹም
@@ -644,7 +643,7 @@ nlu:
     - ፀብፃብ ሪፖርት ከቕርብ እፈቱ
     - ግርጭት ክሕብር ደልየ ኣለኹ
 
-- intent: new_conflict_report
+- intent: new_conflict_report_am
   examples: |
     - አዲስ የሚቀርብ
     - አዲስ ሪፖርት
@@ -913,3 +912,15 @@ nlu:
     - እዚ ቦት እዩ?
     - ንስኻ እውነተኛ ኢኻ?
     
+- intent: nlu_fallback_am
+  examples: |
+    - ኣክይርምልሶ
+    - ትይላያማም
+    - chit chat
+    - i need time
+    - hhhhhhhhhhhhhhhhh
+    - abcddddddddddd
+    - kkkkkkkkkkkkk
+    - llllllllllllll
+    - hi
+    - hey

@@ -6,28 +6,61 @@ stories:
 - story: user asks about the ministry
   steps:
     - intent: greet_am
-    - action: utter_greet_am
-    - intent: about_us_am
-    - action: utter_about_us_am
+    - action: utter_welcome_am
+    - action: utter_main_menu_am
 
 - story: user asks about the ministry
   steps:
     - intent: greet_oro
-    - action: utter_greet_oro
+    - action: utter_welcome_oro
+    - action: utter_main_menu_oro
+
+- story: user asks about the ministry
+  steps:
+    - intent: greet_som
+    - action: utter_welcome_som
+    - action: utter_main_menu_som
+
+- story: user asks about the ministry
+  steps:
+    - intent: greet_tgr
+    - action: utter_welcome_tgr
+    - action: utter_main_menu_tgr
+
+- story: user asks about the ministry
+  steps:
+    - intent: main_menu_am
+    - action: utter_main_menu_am
+
+- story: user asks about the ministry
+  steps:
+    - intent: main_menu_oro
+    - action: utter_main_menu_oro
+
+- story: user asks about the ministry
+  steps:
+    - intent: main_menu_tgr
+    - action: utter_main_menu_tgr
+
+
+- story: user asks about the ministry
+  steps:
+    - intent: about_us_am
+    - action: utter_about_us_am
+
+
+- story: user asks about the ministry
+  steps:
     - intent: about_us_oro
     - action: utter_about_us_oro
 
 - story: user asks about the ministry
   steps:
-    - intent: greet_som
-    - action: utter_greet_som
     - intent: about_us_som
     - action: utter_about_us_som
 
 - story: user asks about the ministry
   steps:
-    - intent: greet_tgr
-    - action: utter_greet_tgr
     - intent: about_us_tgr
     - action: utter_about_us_tgr
 
@@ -104,102 +137,108 @@ stories:
   steps:
     - intent: goodbye_am
     - action: utter_goodbye_am
-- story: user ask for conflict report
-  steps:
-    - intent: conflict_report_am
-    - action: utter_conflict_report_am
-- story: user ask for conflict report
-  steps:
-    - intent: conflict_report_oro
-    - action: utter_conflict_report_oro
-- story: user ask for conflict report
-  steps:
-    - intent: conflict_report_som
-    - action: utter_conflict_report_som
-- story: user ask for conflict report
-  steps:
-    - intent: conflict_report_tgr
-    - action: utter_conflict_report_tgr
-- story: user ask for new conflict report
-  steps:
-    - intent: new_conflict_report_am
-    - action: utter_new_conflict_report_am
-- story: user ask for new conflict report
-  steps:
-    - intent: new_conflict_report_oro
-    - action: utter_new_conflict_report_oro
-- story: user ask for new conflict report
-  steps:
-    - intent: new_conflict_report_som
-    - action: utter_new_conflict_report_som
-- story: user ask for new conflict report
-  steps:
-    - intent: new_conflict_report_tgr
-    - action: utter_new_conflict_report_tgr
-- story: user ask for conflict status
-  steps:
-    - intent: conflict_status_am
-    - action: utter_conflict_status_am
-- story: user ask for conflict status
-  steps:
-    - intent: conflict_status_oro
-    - action: utter_conflict_status_oro
-- story: user ask for conflict status
-  steps:
-    - intent: conflict_status_som
-    - action: utter_conflict_status_som
-- story: user ask for conflict status
-  steps:
-    - intent: conflict_status_tgr
-    - action: utter_conflict_status_tgr
-- story: user ask for risk score
-  steps:
-    - intent: risk_score_am
-    - action: utter_risk_score_am
-- story: user ask for risk score
-  steps:
-    - intent: risk_score_oro
-    - action: utter_risk_score_oro
-- story: user ask for risk score
-  steps:
-    - intent: risk_score_som
-    - action: utter_risk_score_som
-- story: user ask for risk score
-  steps:
-    - intent: risk_score_tgr
-    - action: utter_risk_score_tgr
-- story: user ask for FAQ
-  steps:
-    - intent: FAQ_am
-    - action: utter_FAQ_am
-- story: user ask for FAQ
-  steps:
-    - intent: FAQ_oro
-    - action: utter_FAQ_oro
-- story: user ask for FAQ
-  steps:
-    - intent: FAQ_som
-    - action: utter_FAQ_som
-- story: user ask for FAQ
-  steps:
-    - intent: FAQ_tgr
-    - action: utter_FAQ_tgr
-- story: user ask for help
-  steps:
-    - intent: help_am
-    - action: utter_help_am
-- story: user ask for help
-  steps:
-    - intent: help_oro
-    - action: utter_help_oro
-- story: user ask for help
-  steps:
-    - intent: help_som
-    - action: utter_help_som
-- story: user ask for help
-  steps:
-    - intent: help_tgr
-    - action: utter_help_tgr  
+
+# - story: user says goodbye
+#   steps:
+#     - intent: conflict_status_check_am
+#     - action: utter_conflict_status_check_am
+# - story: user ask for conflict report
+#   steps:
+#     - intent: conflict_report_am
+#     - action: utter_conflict_report_am
+# - story: user ask for conflict report
+#   steps:
+#     - intent: conflict_report_oro
+#     - action: utter_conflict_report_oro
+# - story: user ask for conflict report
+#   steps:
+#     - intent: conflict_report_som
+#     - action: utter_conflict_report_som
+# - story: user ask for conflict report
+#   steps:
+#     - intent: conflict_report_tgr
+#     - action: utter_conflict_report_tgr
+# - story: user ask for new conflict report
+#   steps:
+#     - intent: new_conflict_report_am
+#     - action: utter_new_conflict_report_am
+# - story: user ask for new conflict report
+#   steps:
+#     - intent: new_conflict_report_oro
+#     - action: utter_new_conflict_report_oro
+# - story: user ask for new conflict report
+#   steps:
+#     - intent: new_conflict_report_som
+#     - action: utter_new_conflict_report_som
+# - story: user ask for new conflict report
+#   steps:
+#     - intent: new_conflict_report_tgr
+#     - action: utter_new_conflict_report_tgr
+# - story: user ask for conflict status
+#   steps:
+#     - intent: conflict_status_am
+#     - action: utter_conflict_status_am
+# - story: user ask for conflict status
+#   steps:
+#     - intent: conflict_status_oro
+#     - action: utter_conflict_status_oro
+# - story: user ask for conflict status
+#   steps:
+#     - intent: conflict_status_som
+#     - action: utter_conflict_status_som
+# - story: user ask for conflict status
+#   steps:
+#     - intent: conflict_status_tgr
+#     - action: utter_conflict_status_tgr
+# - story: user ask for risk score
+#   steps:
+#     - intent: risk_score_am
+#     - action: utter_risk_score_am
+# - story: user ask for risk score
+#   steps:
+#     - intent: risk_score_oro
+#     - action: utter_risk_score_oro
+# - story: user ask for risk score
+#   steps:
+#     - intent: risk_score_som
+#     - action: utter_risk_score_som
+# - story: user ask for risk score
+#   steps:
+#     - intent: risk_score_tgr
+#     - action: utter_risk_score_tgr
+# - story: user ask for FAQ
+#   steps:
+#     - intent: FAQ_am
+#     - action: utter_FAQ_am
+# - story: user ask for FAQ
+#   steps:
+#     - intent: FAQ_oro
+#     - action: utter_FAQ_oro
+# - story: user ask for FAQ
+#   steps:
+#     - intent: FAQ_som
+#     - action: utter_FAQ_som
+# - story: user ask for FAQ
+#   steps:
+#     - intent: FAQ_tgr
+#     - action: utter_FAQ_tgr
+# - story: user ask for help
+#   steps:
+#     - intent: help_am
+#     - action: utter_help_am
+# - story: user ask for help
+#   steps:
+#     - intent: help_oro
+#     - action: utter_help_oro
+# - story: user ask for help
+#   steps:
+#     - intent: help_som
+#     - action: utter_help_som
+# - story: user ask for help
+#   steps:
+#     - intent: help_tgr
+#     - action: utter_help_tgr  
+
 - story: user says goodbye
   steps:
     - intent: goodbye_am

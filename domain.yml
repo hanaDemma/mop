@@ -64,6 +64,7 @@ intents:
   - stop
   - affirm
   - deny
+  - nlu_fallback_am
 
 
 
@@ -80,16 +81,17 @@ slots:
 
   attachmentKeys:
     type: text  # We store the input (text or link) here
+    influence_conversation: false
     mappings:
       - type: from_text
         conditions:
          - active_loop: incident_form
            requested_slot: attachmentKeys
-      - type: from_text 
-        intent: nlu_fallback 
-        conditions:
-         - active_loop: incident_form
-           requested_slot: attachmentKeys
+      # - type: from_text 
+      #   intent: nlu_fallback 
+      #   conditions:
+      #    - active_loop: incident_form
+      #      requested_slot: attachmentKeys
   title:
     type: text
     mappings:
@@ -176,6 +178,7 @@ slots:
 
   anonymity:
     type: bool
+    influence_conversation: false
     mappings:
       - type: from_intent
         value: true
@@ -193,6 +196,23 @@ slots:
         conditions:
          - active_loop: incident_form
            requested_slot: anonymity
+      # Fallback for text inputs like "Yes please"
+      - type: from_text
+        conditions:
+          - active_loop: incident_form
+            requested_slot: anonymity
+
+  # ... other slots ...
+  has_attachment:         # <--- MUST exist here
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
 
 forms:
   form_get_language:
@@ -213,6 +233,7 @@ forms:
       - occurredAt
       - contactPhone
       - anonymity
+      - has_attachment
       - attachmentKeys
 
 responses:
@@ -233,6 +254,7 @@ responses:
   
   utter_welcome_am:
   - image: https://upload.wikimedia.org/wikipedia/commons/2/27/Ministry_of_Peace_Logo_Ethiopia.png
+           
     text: እንኳን ወደ ሰላም ሚኒስትር በደህና መጡ። የምናቀርባቸውን አገልግሎቶች በተመለከተ ማንኛውንም መረጃ እየፈለጉ ነው?
 
   utter_welcome_oro:
@@ -307,15 +329,45 @@ responses:
       - text: "ስለ ሰላም ሚኒስቴር ምን ማወቅ ይፈልጋሉ?"
         button_type: vertical
         buttons:
-          - title: "🔭 Vision"
+          - title: "🔭 ራዕይ"
             payload: "/vision_am"
-          - title: "🎯 Mission"
+          - title: "🎯 ተልእኮ"
             payload: "/mission_am"
-          - title: "💎 Values"
+          - title: "💎 እሴቶች"
             payload: "/values_am"
-          - title: "🏛️ Foundation"
+          - title: "🏛️ ምስረታ"
             payload: "/foundation_am"
+          - title: "⬅️ ይመለሱ"
+            payload: "/main_menu_am"
+          - title: ይዉጡ
+            payload: "/start"
 
+ 
+  utter_vision_am:
+     - text: |
+        🔭 ራዕይ 
+        _______________________________
+        "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
+  
+  utter_mission_am:
+     - text: |
+        🎯 ተልእኮ 
+        _______________________________
+        "የዜጋውን፣ የቤተሰብንና የማህበረሰብን ሰላምን በማስጠበቅና በማስከበር፣ ብሔራዊ መግባባትንና አገራዊ አንድነትን በማሳደግ፣ የፌዴራል ስርዓቱን በማጠናከር፣ በቀድሞ ተገኝነት ግጭትን በማስተዳደር፣ ቀጣናዊና አህጉራዊ ትብብርና ትስስርን በማጎልበት እንዲሁም ተቋማዊነትን በማሳደግ ሁለንተናዊና ዘላቂ ሰላም መገንባት ነው፡፡"
+  
+  utter_values_am:
+     - text: |
+        💎 እሴቶች 
+        _______________________________
+        ሀገር-ወዳድነት፣ ሰላማዊነት፣ ህጋዊነት፣ ምክንያታዊነት፣ ዓለም-አቀፋዊነት
+
+  utter_foundation_am:
+    - text: |
+        🏛️ ምስረታ
+        _______________________________
+        "የሰላም ሚኒስቴር የኢትዮጵያ ፌደራላዊ ዲሞክራስያዊ ሪፐብሊክ የፌደራል መንግስት አስፈፃሚ አካላትን ስልጣንና ተግባር ለመወሰን በወጣው አዋጅ ቁጥር 1097/2011 አንቀፅ 13 ለመጀመሪያ ጊዜ ተቋቋመ፡፡ 
+        በመቀጠልም በኢትዮጵያ ፌደራላዊ ዲሞክራሲያዊ ሪፐብሊክ የፌደራል መንግሥት አስፈፃሚ አካላትን ሥልጣንና ተግባር ለመወሰን በወጣው አዋጅ ቁጥር 1263/2014 እንደገና ተቋቁሟል፡፡"
+ 
   utter_about_us_oro:
     - text: "Waa'ee Ministeera Nageenyaa maal beekuu barbaaddu?"
       button_type: vertical
@@ -328,8 +380,36 @@ responses:
           payload: "/values_oro"
         - title: "🏛️ Seenaa"
           payload: "/foundation_oro"
+        - title: <-- Dubaatii Debii'a
+          payload: "/main_menu_oro"
+        - title: Cufaa Bahaa
+          payload: "/start"
 
-  
+  utter_vision_oro:
+     - text: |
+        🔭 Mul'ata
+        _______________________________
+        "Nageenya,Kabaja lammumaa fi tokkummaan sabdaneessummaa guddatee arguu"
+
+  utter_mission_oro:
+     - text: |
+        🎯 Ergama
+        _______________________________
+        "Nageenya lammii,maatii fi hawaasaa eegsisuu fi kabachiisuudhaan,waliigaltee fi tokkummaa biyyoolessaa guddisuu
+        Sirna federaalaa jabeessuudhaan, dursanii argamuudhaan waldhibdee bulchuudhaan,waldeeggarsaa fi walitti hidhamiinsa 
+        qaxanaa fi akka ardiitti guddisuudhaan akkasumas dhaabbileewwan guddisuudhaan nageenya hunda galeessa itti fufaa ta'e ijaaruudha."
+  utter_values_oro:
+     - text: |
+        🔭 Duudhaalee
+        _______________________________
+        "Jaalala biyyaa, nageenyummaa,seera qabeessummaa, sababa qabaachuu, Idil adunyummaa"
+  utter_foundation_oro:
+     - text: |
+        🔭 Duudhaalee
+        _______________________________
+        "Ministeerri nageenyaa qaamoolee raawwachiiftuu mootummaa federaalaa diimokiraatawaa rippaablikaa itoophiyaa aangoo fi gocha murteesuudhaaf lakkoofsa labsii 1097/2011 keewwata 13  baaseen yeroo jalqabaatiif bu'ureeffame.
+              itti fufuudhaan qaamolee raawwachiiftuu mootummaa federaalaawaa diimookraatawaa riippaablikaa itoophiyaatti aangoo fi gocha murteessuudhaaf lakkoofsa labsii 1263/2014 baaseen irra deebiidhaan hundaa'eera."
+
 
   utter_about_us_som:
     - text: "Maxaad doonaysaa inaad ka ogaato Wasaaradda Nabadda?"
@@ -344,6 +424,32 @@ responses:
         - title: "🏛️ tariikh"
           payload: "/foundation_som"
 
+  utter_vision_som:
+     - text: |
+        🔭 yool
+        _______________________________
+        "Nabada. Sharafta .iyo midnimada .qaranka iin la tuuso la arko"
+  
+  utter_mission_som:
+     - text: |
+        🎯 hawlgalka
+        _______________________________
+        "Nabada. Sharafta .iyo midnimada .qaranka iin la tuuso la arko"
+  
+  utter_values_som:
+     - text: |
+        💎 qiimaha
+        _______________________________
+        "jaceelka wadanimada፣ nabadgaliyonimada ፣sharcinimadisa፣ ,sababnimada፣ ogaashaha aduun weeynaha" 
+  
+  utter_foundation_som:
+     - text: |
+        💎 tariikh
+        _______________________________
+        "ministeerka nabada jamuudiyada federaalka dimoqraadiga itoobiya dawlada federaalka mamuulka xubinta filinta ficiilka inay goamiyan ku dhaqadida lambaarka 1097/2011 mqaalka 13 marki ugu  horeysay aya la asaasay፡፡
+         Xigta jamuuriyada federaalka dimoqraadiya itoobiya  dawlada federaalka mamuulka xubinta filinta ficiilka inay goamiyan ku dhaqadida lambaarka 1263/2014 marlabaad la asaasay፡፡"
+  
+
   utter_about_us_tgr:
     - text: "ብዛዕባ ሚኒስትሪ ሰላም እንታይ ክትፈልጡ ትደልዩ?"
       button_type: vertical
@@ -356,6 +462,38 @@ responses:
           payload: "/values_tgr"
         - title: "🏛️ ታሪኽ"
           payload: "/foundation_tgr"
+        - title: <-- ተመለስ
+          payload: /"main_menu_tgr" 
+        - title: ውፃእ      
+          payload: /start
+  
+  utter_vision_tgr:
+     - text: |
+        🔭 ራእይ
+        _______________________________
+        "ሰላም ናይ ዜግነት ክብሪ እና ሕብረ ብሄራውነት ሓድነት ዓብዩ ምርኣይ"
+
+  utter_mission_tgr:
+     - text: |
+        🎯 ተልእኾ
+        _______________________________
+        "ናይ ዜጋ፡ ናይ ቤተሰብ እና ናይ ማሕበረሰብ ሰላም ብምሕላው ብምኽባር፡ ብሄራዊ ምርድዳእ እና ሃገራዊ ሓድነትን ብምዕባይ፡ ናይ ፌደራል ስርዓቱን ብምጥንኻር፡ ቅድሚ ኹሉ ብምርካብ ግጭት ብምምሕድዳር ቀጠናዊ እና ኣህጉራዊ ምትሕብባር እና ምትእስሳር ብምጉልባት ከምኡ እውን ተቋዋማዊነት ብምዕባይ ኩለንተናዊ እና ዘላቒ ሰላም ምህናፅ እዩ" 
+
+
+  utter_values_tgr:
+     - text: |
+        💎 እሴታት
+        _______________________________
+        "ሃገር ፈታውነት፡ ሰላማዊነት፡ ሕጋውነት፡ ምኽንያታዊነት፡ ዓለምለኻውነት"
+
+  utter_foundation_tgr:
+     - text: |
+        🏛️ ታሪኽ
+        _______________________________
+        "ናይ ሰላም ሚኒስቴር ናይ ኢትዮጵያ ፌደራላዊ ዲሞክራስያዊ ሪፐብሊክ ናይ ፌደራል መንግስቲ ኣስፈፃሚ ኣካላትን ስልጣን እና ተግባር ንምውሳን ብዝወፀ ኣዋጅ ቑፅሪ 1097/2011 ዓንቀፅ 13 ንመጀመርያ ግዜ ተመስሪቱ። ብምቕፃል እውን ብኢትዮጵያ ፌደራላዊ መንግስቲ ኣስፈፃሚ ኣካላት ስልጣን እና ተግባር ንምውሳን ብዝወፀ ኣዋጅ ቑፅሪ 1263/2014 እንደገና ተመስሪቱ።"
+
+
+
 
   utter_conflict_report_am:
     - text: "ግጭት ሪፖርት"
@@ -393,56 +531,6 @@ responses:
         - title: "📊 ኩነታት ፀብፃብ ግርጭት"
           payload: "/ conflict_status_tgr"
 
-  utter_vision_am:
-    - text: "ሰላም፣ የዜግነት ክብር እና ህብረ-ብሄራዊ አንድነት አድጎ ማየት"
-  utter_vision_oro:
-    - text: "Nageenya,Kabaja lammumaa fi tokkummaan sabdaneessummaa guddatee arguu"
-  utter_vision_som:
-    - text: "Nabada. Sharafta .iyo midnimada .qaranka iin la tuuso la arko"\
-  utter_vision_tgr:
-    - text: "ሰላም ናይ ዜግነት ክብሪ እና ሕብረ ብሄራውነት ሓድነት ዓብዩ ምርኣይ"
-
-    
-  utter_mission_am:
-    - text: "የዜጋውን፣ የቤተሰብንና የማህበረሰብን ሰላምን በማስጠበቅና በማስከበር፣ ብሔራዊ መግባባትንና አገራዊ አንድነትን በማሳደግ፣ 
-             የፌዴራል ስርዓቱን በማጠናከር፣ በቀድሞ ተገኝነት ግጭትን በማስተዳደር፣ ቀጣናዊና አህጉራዊ ትብብርና ትስስርን በማጎልበት እንዲሁም ተቋማዊነትን በማሳደግ ሁለንተናዊና ዘላቂ ሰላም መገንባት ነው፡፡"
-  utter_mission_oro:
-    - text: "Nageenya lammii,maatii fi hawaasaa eegsisuu fi kabachiisuudhaan,waliigaltee fi tokkummaa biyyoolessaa guddisuu
-              Sirna federaalaa jabeessuudhaan, dursanii argamuudhaan waldhibdee bulchuudhaan,waldeeggarsaa fi walitti hidhamiinsa qaxanaa fi akka ardiitti guddisuudhaan akkasumas dhaabbileewwan guddisuudhaan nageenya hunda galeessa itti fufaa ta'e ijaaruudha."
-  utter_mission_som:  
-    - text: "muwadinka, qoyska, bulshada nabada iin lasugo la ilaaliyo falaqeenta qaran midnimada wadaniyed iin la kordhiyo፣
-             Nidaamka federaalka oo la adkeeyo,isku dhacyada jira mamulideeda,gobaha heer qaran wanajinteda iyo isku xidhkeeda,iin la kordhyo sido kale hay’adeenta la kordhiyo mideen iyo salaam joogta la dhiso"  
-  utter_mission_tgr:
-    - text: "ናይ ዜጋ፡ ናይ ቤተሰብ እና ናይ ማሕበረሰብ ሰላም ብምሕላው ብምኽባር፡ ብሄራዊ ምርድዳእ እና ሃገራዊ ሓድነትን ብምዕባይ፡ ናይ ፌደራል ስርዓቱን ብምጥንኻር፡ ቅድሚ ኹሉ ብምርካብ ግጭት ብምምሕድዳር ቀጠናዊ እና ኣህጉራዊ ምትሕብባር እና ምትእስሳር ብምጉልባት ከምኡ እውን ተቋዋማዊነት ብምዕባይ ኩለንተናዊ እና ዘላቒ ሰላም ምህናፅ እዩ"
-
-
-
-  utter_values_am:
-    - text: "ሀገር-ወዳድነት፣ ሰላማዊነት፣ ህጋዊነት፣ ምክንያታዊነት፣ ዓለም-አቀፋዊነት"
-  utter_values_oro:
-    - text: "Jaalala biyyaa, nageenyummaa,seera qabeessummaa, sababa qabaachuu, Idil adunyummaa"
-  utter_values_som:
-    - text: "jaceelka wadanimada፣ nabadgaliyonimada ፣sharcinimadisa፣ ,sababnimada፣ ogaashaha aduun weeynaha"  
-  utter_values_tgr:
-    - text: "ሃገር ፈታውነት፡ ሰላማዊነት፡ ሕጋውነት፡ ምኽንያታዊነት፡ ዓለምለኻውነት" 
-
-
-
-  utter_foundation_am:
-    - text: "የሰላም ሚኒስቴር የኢትዮጵያ ፌደራላዊ ዲሞክራስያዊ ሪፐብሊክ የፌደራል መንግስት አስፈፃሚ አካላትን ስልጣንና ተግባር ለመወሰን በወጣው አዋጅ ቁጥር 1097/2011 አንቀፅ 13 ለመጀመሪያ ጊዜ ተቋቋመ፡፡ 
-             በመቀጠልም በኢትዮጵያ ፌደራላዊ ዲሞክራሲያዊ ሪፐብሊክ የፌደራል መንግሥት አስፈፃሚ አካላትን ሥልጣንና ተግባር ለመወሰን በወጣው አዋጅ ቁጥር 1263/2014 እንደገና ተቋቁሟል፡፡"
-  utter_foundation_oro:
-    - text: "Ministeerri nageenyaa qaamoolee raawwachiiftuu mootummaa federaalaa diimokiraatawaa rippaablikaa itoophiyaa aangoo fi gocha murteesuudhaaf lakkoofsa labsii 1097/2011 keewwata 13  baaseen yeroo jalqabaatiif bu'ureeffame.
-              itti fufuudhaan qaamolee raawwachiiftuu mootummaa federaalaawaa diimookraatawaa riippaablikaa itoophiyaatti aangoo fi gocha murteessuudhaaf lakkoofsa labsii 1263/2014 baaseen irra deebiidhaan hundaa'eera."
-  utter_foundation_som:
-    - text: "ministeerka nabada jamuudiyada federaalka dimoqraadiga itoobiya dawlada federaalka mamuulka xubinta filinta ficiilka inay goamiyan ku dhaqadida lambaarka 1097/2011 mqaalka 13 marki ugu  horeysay aya la asaasay፡፡
-             Xigta jamuuriyada federaalka dimoqraadiya itoobiya  dawlada federaalka mamuulka xubinta filinta ficiilka inay goamiyan ku dhaqadida lambaarka 1263/2014 marlabaad la asaasay፡፡"
-  utter_foundation_tgr:
-    - text: "ናይ ሰላም ሚኒስቴር ናይ ኢትዮጵያ ፌደራላዊ ዲሞክራስያዊ ሪፐብሊክ ናይ ፌደራል መንግስቲ ኣስፈፃሚ ኣካላትን ስልጣን እና ተግባር ንምውሳን ብዝወፀ ኣዋጅ ቑፅሪ 1097/2011 ዓንቀፅ 13 ንመጀመርያ ግዜ ተመስሪቱ። ብምቕፃል እውን ብኢትዮጵያ ፌደራላዊ መንግስቲ ኣስፈፃሚ ኣካላት ስልጣን እና ተግባር ንምውሳን ብዝወፀ ኣዋጅ ቑፅሪ 1263/2014 እንደገና ተመስሪቱ።"
-
-
-
-
   utter_goodbye_am:
     - text: "የሰላም ሚኒስቴር ቻትቦትን በመጠቀምዎ እናመሰግናለን!"
   utter_goodbye_oro:
@@ -467,11 +555,11 @@ responses:
     - text: "የጉዳቱ ደረጃ ምን ያህል ነው?"
       button_type: vertical
       buttons:
-        - title: "Low (ዝቅተኛ)"
+        - title: "ዝቅተኛ"
           payload: "Low"
-        - title: "Medium (መካከለኛ)"
+        - title: "መካከለኛ"
           payload: "Medium"
-        - title: "High (ከፍተኛ)"
+        - title: "ከፍተኛ"
           payload: "High"
 
   utter_ask_region:
@@ -500,20 +588,33 @@ responses:
     - text: "እባኮን ስምዎ እና ማንነትዎ በሚስጥር እንዲያዝ ይፈልጋሉ?"
       button_type: vertical
       buttons:
-        - title: "አዎ (Yes)"
+        - title: "አዎ "
           payload: "true"
-        - title: "አይ (No)"
+        - title: "አይ"
           payload: "false"
+
+  utter_ask_has_attachment:
+    - text: "ተያያዥ ምስል ወይም ተጨማሪ ማስረጃ አለዎት?"
+      button_type: vertical
+      buttons:
+        - title: "አዎ"
+          payload: "/affirm"
+        - title: "አይ"
+          payload: "/deny"
+
   utter_ask_attachmentKeys:
-    - text: "እባኮን የድጋፍ መረጃ ወይም ፎቶ ካለዎት ይላኩ? (ካልፈለጉ 'ለማለፍ' ወይም 'Skip' ብለው ይፃፉ)"
-  utter_conflict_status_check:
+    - text: "እባኮን የድጋፍ መረጃ ወይም ተጨማሪ ማስረጃ ካለዎት ያያይዙ"
+  utter_conflict_status_am:
     - text: "ይህ አገልግሎት በቅርቡ ይጀምራል። (This service is coming soon)"
+    
+  utter_please_rephrase_am:
+  - text: ይቅርታ! እባክዎን ጥያቄዎን  በትክክል ደግመው ያስገቡ
 
 actions:
   - validate_form_get_language
   - action_submit_language_form
   - action_submit_incident_form # You need to create this python action
-
+  - validate_incident_form
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
